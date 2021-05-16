@@ -4,13 +4,13 @@ class Pages extends Controller{
         $this->userModel = $this->model('User');
     }
 
-    public function index(){
+    public function home(){
         $data = [
             'title' => 'Home page',
             'name' => 'WEBA'
         ];
 
-        $this->view('pages/index', $data);
+        $this->view('pages/home', $data);
     }
 
     public function about(){
