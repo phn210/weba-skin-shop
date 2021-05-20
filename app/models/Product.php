@@ -19,4 +19,18 @@ class Product {
         } else 
             return [];
     }
+
+    public function getProductById($id) {
+        // Prepare statement
+        $this->db->query('SELECT * FROM products WHERE id = :id');
+
+        // Bind parameters with variables
+        $this->db->bind(':id', $id);
+
+        // Check result
+        if($this->db->rowCount() > 0) {
+            return $this->db->fetch();
+        } else 
+            return [];
+    }
 }
