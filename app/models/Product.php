@@ -15,7 +15,7 @@ class Product {
 
         // Check result
         if($this->db->rowCount() > 0) {
-            return $this->db->fetchAll();
+            return $this->db->resultSet();
         } else 
             return [];
     }
@@ -29,7 +29,7 @@ class Product {
 
         // Check result
         if($this->db->rowCount() > 0) {
-            return $this->db->fetch();
+            return $this->db->single();
         } else 
             return [];
     }

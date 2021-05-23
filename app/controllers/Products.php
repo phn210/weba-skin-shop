@@ -8,4 +8,12 @@ class Products extends Controller {
         $product = $this->productModel->getProductById($id);
         $this->view("products/detail", $product);
     }
+
+    public function list(){
+        $this->view("products/list");
+    }
+
+    public function search() {
+        $this->view("products/search");
+    }
 }
