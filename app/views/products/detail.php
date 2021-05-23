@@ -10,16 +10,25 @@
 
     <div class="product_overview">
       <div class="spotlight">
-        <button id="inner_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <button id="inner_next"><img src="<?=URLROOT?>/public/img/right-arrow.png"></button>
+        <!--<button id="inner_prev"><img src="../img/left-arrow.png"></button>
+        
+        <button id="inner_next"><img src="../img/right-arrow.png"></button>-->
+        <img id="featured" src="">
       </div>
       <div class="samples">
-        <button id="outer_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <button id="outer_next"><img src="<?=URLROOT?>/public/img/right-arrow.png"></button>
+        <button id="sample_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
+        <div class="thumbnails">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test1.jpg">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test2.jpg">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test3.jpg">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test4.jpg">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test1.jpg">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test2.jpg">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test3.jpg">
+          <img class="sample-thumbnail" src="<?=URLROOT?>/public/img/test4.jpg">
+        </div>
+
+        <button id="sample_next"><img src="<?=URLROOT?>/public/img/right-arrow.png"></button>
       </div>
       <div class="product_name">
         Product Name
@@ -35,13 +44,13 @@
         <div id="discounted">100.000</div>
       </div>
       <div class="add_to_cart">
-        <div class="quantity">
+        <span class="quantity">
           Số lượng:
-          <button>-</button>
-          <input type="number" value="1" readonly/>
-          <button>+</button>
-        </div>
-        <button id="add_btn">Add to cart</button>
+          <button id="btn_sub">-</button>
+          <span id="quantity-to-add"></span>
+        <button id="btn_add">+</button>
+        </span>
+        <button id="add_to_cart">Add to cart</button>
 
       </div>
     </div>
@@ -61,14 +70,26 @@
       Sản phẩm tương tự
       <hr>
       <div class="similar_products">
-        <button id="outer_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <img src="<?=URLROOT?>/public/img/test.jpg">
-        <button id="outer_next"><img src="<?=URLROOT?>/public/img/right-arrow.png"></button>
+        <button id="similar_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
+        <div class="thumbnails">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test1.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test2.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test3.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test4.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test1.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test2.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test3.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test4.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test1.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test2.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test3.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test4.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test1.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test2.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test3.jpg">
+          <img class="similar-thumbnail" src="<?=URLROOT?>/public/img/test4.jpg">
+        </div>
+        <button id="similar_next"><img src="<?=URLROOT?>/public/img/right-arrow.png"></button>
       </div>
     </div>
   </section>

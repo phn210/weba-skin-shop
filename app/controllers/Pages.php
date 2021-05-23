@@ -20,4 +20,8 @@ class Pages extends Controller{
     public function service(){
         $this->view('pages/service');
     }
+
+    public function cart(){
+        $this->view('pages/cart');
+    }
 }
