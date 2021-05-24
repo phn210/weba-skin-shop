@@ -2,7 +2,9 @@
     require_once '../app/views/common/header.php';
 ?>
 
-<?php var_dump($data)?>
+<?php
+    var_dump($data['products']);
+?>
 
 <section class="main_section">
 
@@ -12,184 +14,89 @@
 
 <div class="container_product_list">
   <ul class="categories">
-    <li class="type">
-      <a href="">
-        <h2>Type 1</h2>
-        <ul class="brands">
-          <li class="brand">
-            <a href="">
-              <h3>Brand 1</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-          <li class="brand">
-            <a href="">
-              <h3>Brand 2</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-        </ul>
-      </a>
-    </li>
-    <li class="type">
-      <a href="">
-        <h2>Type 2</h2>
-        <ul class="brands">
-          <li class="brand">
-            <a href="">
-              <h3>Brand 1</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-          <li class="brand">
-            <a href="">
-              <h3>Brand 2</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-        </ul>
-      </a>
-    </li>
-    <li class="type">
-      <a href="">
-        <h2>Type 3</h2>
-        <ul class="brands">
-          <li class="brand">
-            <a href="">
-              <h3>Brand 1</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-          <li class="brand">
-            <a href="">
-              <h3>Brand 2</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-        </ul>
-      </a>
-    </li>
+    <?php
+    foreach($data['devices'] as $device) {
+      echo'
+      <li class="type"> 
+        <a href="'.URLROOT.'/products/list/'.$device->device_id.'">
+          <h2>'.$device->name.'</h2>
+          <ul class="brands">
+      ';
 
+      foreach($device->brands as $brand){
+        echo
+        '   <li class="brand">
+              <a href="'.URLROOT.'/products/list/'.$device->device_id.'/'.$brand->brand_id.'">
+              <h3>'.$brand->name.'</h3>
+              <ul class="product_lines">
+        ';
+
+        foreach($brand->productLines as $productLine) {
+          
+          echo'
+                <li class="product_line">
+                  <a href="'.URLROOT.'/products/list/'.$device->device_id.'/'.$brand->brand_id.'/'.$productLine->line_id.'">
+                    <h4>'.$productLine->name.'</h4>
+                  </a>
+                </li>
+          ';
+        }
+
+        echo'
+              </ul>
+            </a>
+          </li>
+        ';
+      }
+
+      echo' 
+         </ul>
+        </a>
+      </li>
+      ';
+    }
+    ?>
   </ul>
 
   <div class="sort"></div>
+
   <div class="product_list">
-    <div class="product">
-      <a href="">
-        <img src="../img/test1.jpg" alt="product_image">
-        <p>Product name</p>
-      </a>
-      <div class="product_prices">
-        <div id="retail_price">200.000</div>
-        <div id="discounted">100.000</div>
-      </div>
-    </div>
-    <div class="product">
-      <a href="">
-        <img src="../img/test2.jpg" alt="product_image">
-        <p>Product name</p>
-      </a>
-      <div class="product_prices">
-        <div id="retail_price">200.000</div>
-        <div id="discounted">100.000</div>
-      </div>
-    </div>
-    <div class="product">
-      <a href="">
-        <img src="../img/test3.jpg" alt="product_image">
-        <p>Product name</p>
-      </a>
-      <div class="product_prices">
-        <div id="retail_price">200.000</div>
-        <div id="discounted">100.000</div>
-      </div>
-    </div>
-    <div class="product">
-      <a href="">
-        <img src="../img/test4.jpg" alt="product_image">
-        <p>Product name</p>
-      </a>
-      <div class="product_prices">
-        <div id="retail_price">200.000</div>
-        <div id="discounted">100.000</div>
-      </div>
-    </div>
-    <div class="product">
-      <a href="">
-        <img src="../img/test1.jpg" alt="product_image">
-        <p>Product name</p>
-      </a>
-      <div class="product_prices">
-        <div id="retail_price">200.000</div>
-        <div id="discounted">100.000</div>
-      </div>
-    </div>
+    <?php
+    if(is_array($data['products'])){
+      foreach($data['products'] as $product) {
+        echo'
+        <div class="product">
+          <a href="'.URLROOT.'/products/list/'.$product->product_id.'">
+            <img src="'.base64_encode($product->image).'" alt="product_image">
+            <p>'.$product->name.'</p>
+          </a>
+          <div class="product_prices">
+            <div id="retail_price">200.000</div>
+            <div id="discounted">100.000</div>
+          </div>
+        </div>
+        ';
+      }
+    } else if(is_null($data['products'])) {
+        echo'None Founded';
+    } else {
+      echo'
+        <div class="product">
+          <a href="'.URLROOT.'/products/list/'.$products->product_id.'">
+            <img src="'.base64_encode($products->image).'" alt="product_image">
+            <p>'.$products->name.'</p>
+          </a>
+          <div class="product_prices">
+            <div id="retail_price">200.000</div>
+            <div id="discounted">100.000</div>
+          </div>
+        </div>
+        ';
+    }
+
+    
+    ?>
+    
     <div class="page_control">
       <button><img src="../img/left-arrow.png" alt=""></button>
       <button>1</button>

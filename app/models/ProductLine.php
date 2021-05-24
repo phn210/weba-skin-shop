@@ -24,6 +24,6 @@ class ProductLine {
         $this->db->bind(':device_id', $device_id);
         $this->db->bind(':brand_id', $brand_id);
 
-        return $this->db->single();
+        return $this->db->resultSet();
     }
 }

@@ -6,9 +6,9 @@ class Product {
         $this->db = new Database;
     }
 
-    public function findProductByName($name) {
+    public function findProductsByName($name) {
         // Prepare statement
-        $this->db->query('SELECT * FROM products WHERE name like %:name%');
+        $this->db->query('SELECT * FROM products WHERE name LIKE "%":name"%"');
 
         // Bind parameters with variables
         $this->db->bind(':name', $name);
@@ -17,12 +17,12 @@ class Product {
 
     }
 
-    public function findById($id) {
+    public function findById($product_id) {
         // Prepare statement
-        $this->db->query('SELECT * FROM products WHERE id = :id');
+        $this->db->query('SELECT * FROM products WHERE product_id = :product_id');
 
         // Bind parameters with variables
-        $this->db->bind(':id', $id);
+        $this->db->bind(':product_id', $product_id);
 
         return $this->db->single();
 

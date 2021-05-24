@@ -3,7 +3,9 @@ class Products extends Controller {
     public function __construct() {
         $this->productModel = $this->model('Product');
         $this->deviceModel = $this->model('Device');
-        $this->brandMode = $this->model('Brand');
+        $this->brandModel = $this->model('Brand');
+        $this->productLineModel = $this->model('ProductLine');
+        $this->imageModel = $this->model('Image');
          
     }
 
@@ -31,12 +33,31 @@ class Products extends Controller {
     */
 
     public function search($keyword) {
-        $products = $this->productModel->getAllProducts();
 
+        // Categories container
+        $devices = $this->deviceModel->getAllDevices();
+        
+        
+        foreach($devices as $device) {
+            $brands = $this->brandModel->getBrandsByDevice($device->device_id);
+            foreach($brands as $brand) {
+                $productLines = $this->productLineModel->getLinesByDeviceAndBrand($device->device_id, $brand->brand_id);
+                $brand->productLines = $productLines;
+            }
+            $device->brands =  $brands;
+            
+        }   
+
+        // Search result
+        $products = $this->productModel->findProductsByName($keyword);
+        foreach($products as $product){
+            $product->image=json_decode($product->image);
+        }
 
         $data = [
             'keyword' => $keyword,
-            'products' => $products
+            'products' => $products,
+            'devices' => $devices,
         ];
         $this->view("products/search", $data);
     }

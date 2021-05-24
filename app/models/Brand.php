@@ -18,7 +18,10 @@ class Brand {
 
     public function getBrandsByDevice($device_id){
         // Prepare statement
-        $this->db->query('SELECT * FROM brands, device_brand WHERE device_id = :device_id');
+        $this->db->query('SELECT brands.* 
+                        FROM brands, device_brand 
+                        WHERE brands.brand_id = device_brand.brand_id 
+                        AND device_id = :device_id');
 
         // Bind parameters with variables
         $this->db->bind(':device_id', $device_id);
