@@ -94,7 +94,7 @@ class Products extends Controller {
     }
     
 
-    public function search($keyword) {
+    public function search($keyword=[]) {
 
         // Categories container
         $devices = $this->deviceModel->getAllDevices();
@@ -111,6 +111,8 @@ class Products extends Controller {
         }   
 
         // Search result
+        if(isset($_GET["keyword"])) $keyword = $_GET["keyword"];
+        else $keyword = "";
         $products = $this->productModel->findProductsByName($keyword);
         foreach($products as $product){
             $product->image = base64_encode($this->imageModel->getProductThumbnail($product->product_id)->image);

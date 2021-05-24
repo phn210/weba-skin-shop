@@ -5,6 +5,6 @@
             <div class="map"></div>
         </footer>
         
-        
+    <script src="<?=URLROOT?>/public/javascript/header.js"></script>
     </body>
 </html>

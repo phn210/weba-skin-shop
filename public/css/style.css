@@ -83,7 +83,7 @@ header {
 }
 
 .search_bar .btn:hover {
-  background: lightblue;
+  zoom:1.05;
 }
 
 .search_bar img {
