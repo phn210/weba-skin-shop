@@ -171,10 +171,15 @@ header {
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+  max-height: 144px;
 }
 
 .samples>* {
   margin: 0 0.2rem;
+}
+
+.thumbnail-wrapper {
+  overflow: hidden;
 }
 
 .thumbnails {
@@ -184,10 +189,7 @@ header {
   overflow-x: visible;
   transition: 0.3s;
   z-index: 0;
-}
-
-.thumbnails img {
-  margin: 0 0.2rem;
+  max-height: 144px;
 }
 
 .thumbnails img:hover {
@@ -196,13 +198,14 @@ header {
 }
 
 .samples img {
-  width: 25%;
+  width: 15%;
+  margin: 0 0.2rem;
 }
 
 .samples button {
   border: 0;
   min-width: 1.5rem;
-  background-color: transparent;
+  background-color: white;
   z-index: 1;
 }
 
@@ -311,20 +314,21 @@ header {
 }
 
 .similar_products {
-  grid-column: 1;
-  grid-row: 3;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 1rem;
 }
 
 .similar_products img {
-  width: 12.5%;
+  width: 15%;
+  margin: 0 0.2rem;
 }
 
 .similar_products button {
+  min-width: 3rem;
   border: 0;
-  background-color: transparent;
+  z-index: 1;
+  background-color: white;
 }
 
 .similar_products button:hover {
@@ -359,7 +363,6 @@ header {
   flex-basis: 100%;
   min-width: 200px;
   height: fit-content;
-  background-color: grey;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -367,21 +370,33 @@ header {
 
 .categories ul,
 li {
-  background: white;
-  margin: 0 0 0.5rem 0;
-  padding: 0.3rem;
+  border: 0;
+  margin: 0.8rem 0 0 0;
 }
 
-.type {
-  background-color: aquamarine;
+.categories a {
+  display: block;
+  color: black;
 }
 
-.brand {
-  background-color: burlywood;
+.categories h2,
+h3,
+h4 {
+  padding: 0.5rem 0.8rem;
 }
 
-.product_line {
-  background-color: lightpink;
+.type a {
+  background-color: #99ddff;
+}
+
+.type:hover {}
+
+.brand a {
+  background-color: #b3e6ff;
+}
+
+.product_line a {
+  background-color: #cceeff;
 }
 
 .product_list {
@@ -398,6 +413,7 @@ li {
 
 .product>* {
   margin: 0.5rem 0;
+  overflow: hidden;
 }
 
 .product img {
