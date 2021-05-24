@@ -5,7 +5,7 @@
 <section class="main_section">
 
     <div class="product_directory">
-      <img src="../img/home.png" alt="home_icon"> Trang chủ / Loại SP / Hãng / Tên SP
+      <img src="<?=URLROOT?>/public/img/home.png" alt="home_icon"> Trang chủ / Loại SP / Hãng / Tên SP
     </div>
 
     <div class="product_overview">
@@ -16,7 +16,7 @@
         <img id="featured" src="">
       </div>
       <div class="samples">
-        <button id="sample_prev"><img src="../img/left-arrow.png"></button>
+        <button id="sample_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
         <div class="thumbnail-wrapper">
           <div class="thumbnails">
             <img class="sample-thumbnail" src="../img/test1.jpg">
@@ -29,7 +29,7 @@
             <img class="sample-thumbnail" src="../img/test4.jpg">
           </div>
         </div>
-        <button id="sample_next"><img src="../img/right-arrow.png"></button>
+        <button id="sample_next"><img src="<?=URLROOT?>/public/img/right-arrow.png"></button>
       </div>
       <div class="product_name">
         Product Name

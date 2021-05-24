@@ -13,10 +13,16 @@ class Brand {
         // Bind parameters with variables
         $this->db->bind(':id', $id);
 
-        // Check result
-        if($this->db->rowCount() > 0) {
-            return $this->db->single();
-        } else 
-            return [];
+        return $this->db->single();
+    }
+
+    public function getBrandsByDevice($device_id){
+        // Prepare statement
+        $this->db->query('SELECT * FROM brands, device_brand WHERE device_id = :device_id');
+
+        // Bind parameters with variables
+        $this->db->bind(':device_id', $device_id);
+
+        return $this->db->resultSet();
     }
 }

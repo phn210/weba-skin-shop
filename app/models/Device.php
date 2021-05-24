@@ -13,10 +13,13 @@ class Device {
         // Bind parameters with variables
         $this->db->bind(':id', $id);
 
-        // Check result
-        if($this->db->rowCount() > 0) {
-            return $this->db->single();
-        } else 
-            return [];
+        return $this->db->single();
+
+    }
+
+    public function getAllDevices(){
+        $this->db->query('SELECT * FROM devices');
+
+        return $this->db->resultSet();
     }
 }

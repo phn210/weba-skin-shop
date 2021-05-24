@@ -7,7 +7,7 @@
 <section class="main_section">
 
 <div class="product_directory">
-  <img src="../img/home.png" alt="home_icon"> Trang chủ / Tìm kiếm với từ khóa: <span>keyword</span>
+  <img src="<?=URLROOT?>/public/img/home.png" alt="home_icon"> Trang chủ / Tìm kiếm với từ khóa: <span><?php echo $data['keyword'] ?></span>
 </div>
 
 <div class="container_product_list">

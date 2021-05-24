@@ -30,7 +30,7 @@ class Products extends Controller {
     }
     */
 
-    public function search() {
+    public function search($keyword) {
         $products = $this->productModel->getAllProducts();
 
 
