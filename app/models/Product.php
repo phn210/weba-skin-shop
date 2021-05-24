@@ -20,7 +20,7 @@ class Product {
             return [];
     }
 
-    public function getProductById($id) {
+    public function findById($id) {
         // Prepare statement
         $this->db->query('SELECT * FROM products WHERE id = :id');
 
@@ -30,6 +30,17 @@ class Product {
         // Check result
         if($this->db->rowCount() > 0) {
             return $this->db->single();
+        } else 
+            return [];
+    }
+
+    public function getAllProducts(){
+        // Prepare statement
+        $this->db->query('SELECT * FROM products');
+
+        // Check result
+        if($this->db->rowCount() > 0) {
+            return $this->db->resultSet();
         } else 
             return [];
     }

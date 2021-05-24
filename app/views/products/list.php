@@ -1,6 +1,10 @@
 <?php
     require_once '../app/views/common/header.php';
 ?>
+<hr>
+<?php print_r($products)?>
+<hr>
+
 <section class="main_section">
 
 <div class="product_directory">
@@ -8,80 +12,45 @@
   Sản phẩm <span>/ Loại SP </span> <span>/ Hãng</span> <span>/ Tên SP</span>
 </div>
 
+
+
 <div class="container_product_list">
   <ul class="categories">
-    <li class="type">
-      <img src="" alt="type_image" />
+  <li class="type">
       <a href="">
-        <span>Laptop, macbook</span>
-        <ul class="brand">
+        <h2>Device 1</h2>
+        <ul class="brands">
           <li class="brand">
             <a href="">
-              <span>Dell</span>
-            </a>   
-          </li>
-          <li class="brand">
-            <a href="">
-              <span>Asus</span>
-            </a>   
-          </li>
-          <li class="brand">
-            <a href="">
-              <span>Acer</span>
-            </a>   
-          </li>
-          <li class="brand">
-            <a href="">
-              <span>HP</span>
-            </a>   
-          </li>
-          <li class="brand">
-            <a href="">
-              <span>Lenovo</span>
-            </a>   
-          </li>
-          <li class="brand">
-            <a href="">
-              <span>Macbook</span>
-            </a>   
-          </li>
-          <!-- <li class="brand">
-            <a href="">
-              <span>Brand Name</span>
-              <ul class="product_line">
-                <li class="product_line"><a href="">Product Line</a></li>
-                <li class="product_line"><a href="">Product Line</a></li>
-              </ul>
-            </a>
-          </li> -->
-        </ul>
-      </a>
-    </li>
-    <li class="type">
-    <img src="" alt="type_image" />
-      <a href="">
-        <span>Điện thoại</span>
-        <ul class="brand">
-          <li class="brand">
-            <img src="" alt="Iphone_logo" />
-            <a href="">
-              <span>Iphone</span>
-              <ul class="product_line"> 
-                <li class="product_line"><a href="">Iphone 6, 6s, 6 plus, 6s plus</a></li>
-                <li class="product_line"><a href="">Iphone 7, 7 plus</a></li>
-                <li class="product_line"><a href="">Iphone 8, 8 plus</a></li>
-                <li class="product_line"><a href="">Iphone X, Xs Max</a></li>
+              <h3>Brand 1</h3>
+              <ul class="product_lines">
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
               </ul>
             </a>
           </li>
           <li class="brand">
-            <img src="" alt="Samsung_logo" />
             <a href="">
-              <span>Samsung</span>
-              <ul class="product_line">
-                <li class="product_line"><a href="">Galaxy s7</a></li>
-                <li class="product_line"><a href="">Galaxy s8</a></li>
-                <li class="product_line"><a href="">Galaxy s9</a></li>
+              <h3>Brand 2</h3>
+              <ul class="product_lines">
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
               </ul>
             </a>
           </li>
@@ -89,15 +58,44 @@
       </a>
     </li>
     <li class="type">
-      <img src="" alt="type_image" />
       <a href="">
-        <span>Ipad</span>
-      </a>
-    </li>
-    <li class="type">
-      <img src="" alt="type_image" />
-      <a href="">
-        <span>Máy ảnh</span>
+        <h2>Device 2</h2>
+        <ul class="brands">
+          <li class="brand">
+            <a href="">
+              <h3>Brand 1</h3>
+              <ul class="product_lines">
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
+              </ul>
+            </a>
+          </li>
+          <li class="brand">
+            <a href="">
+              <h3>Brand 2</h3>
+              <ul class="product_lines">
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
+                <li class="product_line">
+                  <a href="">
+                    <h4>Product Line</h4>
+                  </a>
+                </li>
+              </ul>
+            </a>
+          </li>
+        </ul>
       </a>
     </li>
   </ul>
