@@ -4,7 +4,8 @@
 <section class="main_section">
 
 <div class="product_directory">
-  <img src="../img/home.png" alt="home_icon"> Trang chủ / Loại SP / Hãng / Tên SP
+  <img src="../img/home.png" alt="home_icon"> 
+  Sản phẩm <span>/ Loại SP </span> <span>/ Hãng</span> <span>/ Tên SP</span>
 </div>
 
 <div class="container_product_list">

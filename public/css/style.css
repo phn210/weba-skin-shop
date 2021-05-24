@@ -8,6 +8,7 @@
   list-style: none;
 }
 
+
 /*Header & Footer*/
 
 header li,
@@ -22,7 +23,7 @@ a {
 header {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
   padding: 5px 10% 5px 10%;
   background-color: lightcyan;
 }
@@ -49,6 +50,7 @@ header {
 }
 
 .nav_links li a {
+  display: block;
   transition: all 0.3 ease 0s;
 }
 
@@ -101,9 +103,4 @@ header {
 }
 
 
-
-
-
-
-
-
+/* Footer */
