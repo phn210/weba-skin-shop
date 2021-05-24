@@ -100,6 +100,8 @@
     </div>
   </section>
 
+  <script src="<?=URLROOT?>/public/javascript/product_detail.js"></script>
+
 <?php
     require_once '../app/views/common/footer.php';
 ?>

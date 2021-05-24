@@ -1,7 +1,7 @@
 <?php
     require_once '../app/views/common/header.php';
 ?>
-    <div class="main_section">
+  <div class="main_section">
     <div class="containter_order">
       <div class="order_form">
         <h1>THÔNG TIN NGƯỜI ĐẶT HÀNG</h1>
@@ -27,6 +27,8 @@
       </div>
     </div>
   </div>
+
+  <script src="<?=URLROOT?>/public/javascript/cart.js"></script>
 <?php
     require_once '../app/views/common/footer.php';
 ?>

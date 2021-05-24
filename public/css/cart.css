@@ -1,0 +1,110 @@
+
+/* Cart */
+
+.containter_order {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .containter_order>div {
+    padding: 1rem 1rem;
+  }
+  
+  .order_form {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .order_form>* {
+    padding: 0.5rem 1rem;
+  }
+  
+  .order_form h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+  
+  .form-control {
+    margin: 0.2rem 0;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .form_button {
+    color: #FFF;
+    background-color: blue;
+    text-decoration: none;
+    width: 70%;
+    position: relative;
+    left: 15%;
+    margin: 1.2rem 0 0 0;
+    padding: 0.6rem 1rem;
+    border: none;
+    text-align: center;
+  }
+  
+  .form_button:hover {
+    cursor: pointer;
+    color: #000;
+    background-color: #ccc;
+  }
+  
+  .order {
+    flex-basis: 60%;
+    padding: 1.2rem;
+  }
+  
+  .order h2 {
+    margin: 1.5rem 0 0 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+  
+  .order_item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .order_item>* {
+    margin: 0 0.5rem;
+  }
+  
+  .order_item .item_image {
+    height: 3rem;
+  }
+  
+  .order_item .item_info {
+    flex: 2;
+  }
+  
+  .order_item button {
+    background-color: transparent;
+    border: 1px lightgray solid;
+    padding: 0.1rem 0.5rem;
+    cursor: pointer;
+  }
+  
+  .order_item .item_amount {
+    text-align: right;
+    outline: none;
+    width: 2.4rem;
+    background-color: transparent;
+    border: 1px lightgray solid;
+    padding: 0.1rem 0rem 0.1rem 0.5rem;
+  }
+  
+  .order_summary {
+    padding: 1rem 0.8rem;
+    line-height: 2rem;
+  }
+  
+  .order_summary .money {
+    float: right;
+  }

@@ -20,7 +20,7 @@ function render() {
 
     const html = items.map(item => `
         <li class="order_item">
-        <a href=""><img class="item_image" src="<?=URLROOT?>/public/img/test1.jpg"></a>
+        <a href=""><img class="item_image" src="../img/test.jpg"></a>
         <div class="item_info">
         <div class="item_name"><a href="">${item.name}</a></div>
         <div class="item_id">Mã: ${item.id}</div>
@@ -37,7 +37,7 @@ function render() {
         <button class="btn_del_item">x</button>
         </li>
     `).join('')
-    document.getElementsByClassName('order_items')[0].innerHTML = html
+    document.querySelectorAll('.order_items')[0].innerHTML = html
 
     const addButtons = document.getElementsByClassName('btn_add_item')
     const subButtons = document.getElementsByClassName('btn_sub_item')

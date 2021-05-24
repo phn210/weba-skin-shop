@@ -1,7 +1,7 @@
 // Sample Pictures Slider
 let thumbnails = document.getElementsByClassName('sample-thumbnail')
 let thumbnailContainer = document.getElementsByClassName('thumbnails')[0]
-const IMG_WIDTH = 80
+const IMG_WIDTH = 120
 thumbnailContainer.style.width = `${thumbnails.length * IMG_WIDTH}px`
 
 thumbnails[0].classList.add('active')
@@ -112,3 +112,26 @@ document.getElementById('similar_prev').addEventListener('click', () => {
 document.getElementById('similar_next').addEventListener('click', () => {
     nextSimilar();
 })
+
+// Product Detail Tabs Control
+let tabs = document.getElementsByClassName('tab')
+let tabsData = document.getElementsByClassName('tabs_data')
+let tabContent = document.getElementsByClassName('tabs_content')[0]
+
+tabsData[0].classList.add('tab-active')
+
+let activeTabs = document.getElementsByClassName('tab-active')
+
+tabContent.innerHTML = activeTabs[0].innerHTML
+
+for (let i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', function() {
+        if (activeTabs.length > 0) {
+            activeTabs[0].classList.remove('tab-active')
+        }
+
+        tabsData[0].classList.add('tab-active')
+
+        tabContent.innerHTML = tabsData[i].innerHTML
+    })
+}

@@ -1,0 +1,244 @@
+/* Product Detail */
+
+.product_directory {
+    display: block;
+    margin: 20px 12.5% 20px 12.5%;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 18px;
+  }
+  
+  .product_directory img {
+    height: 1.5rem;
+  }
+  
+  .product_overview {
+    display: grid;
+    grid-template-columns: 12fr 10fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 1rem;
+  }
+  
+  .product_overview>div {
+    padding: 1rem;
+  }
+  
+  .spotlight {
+    position: relative;
+    justify-self: stretch;
+    grid-column: 1;
+    grid-row: 1/3;
+  }
+  
+  .spotlight img {
+    width: 100%;
+    z-index: 0.5;
+  }
+  
+  .spotlight button {
+    background-color: transparent;
+    border: 0;
+  }
+  
+  .spotlight button>img {
+    height: 2rem;
+    width: auto;
+  }
+  
+  #inner_prev {
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    left: 1rem;
+    cursor: pointer;
+  }
+  
+  #inner_next {
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    right: 1rem;
+    cursor: pointer;
+  }
+  
+  .samples {
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    max-height: 144px;
+  }
+  
+  .samples>* {
+    margin: 0 0.2rem;
+  }
+  
+  .thumbnail-wrapper {
+    overflow: hidden;
+  }
+  
+  .thumbnails {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: visible;
+    transition: 0.3s;
+    z-index: 0;
+    max-height: 144px;
+  }
+  
+  .thumbnails img:hover {
+    border: 2px solid lightskyblue;
+    cursor: pointer;
+  }
+  
+  .samples img {
+    width: 15%;
+    margin: 0 0.2rem;
+  }
+  
+  .samples button {
+    border: 0;
+    min-width: 1.5rem;
+    background-color: white;
+    z-index: 1;
+  }
+  
+  .samples button:hover {
+    background-color: #d9d9d9;
+  }
+  
+  .samples #sample_prev {
+    width: 3rem;
+    cursor: pointer;
+  }
+  
+  .samples #sample_next {
+    width: 3rem;
+    cursor: pointer;
+  }
+  
+  .product_name {
+    grid-column: 2;
+    grid-row: 1;
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+  
+  .product_name p {
+    font-weight: 300;
+    font-size: 1rem;
+  }
+  
+  .product_main_info {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  
+  .product_main_info div {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  #retail_price {
+    text-decoration: line-through;
+  }
+  
+  #discounted {
+    color: red;
+  }
+  
+  .add_to_cart {
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .add_to_cart button {
+    padding: 0.2rem 0.5rem;
+    border-radius: 10%;
+    border: none;
+    cursor: pointer;
+    background-color: lightblue;
+  }
+  
+  .add_to_cart input {
+    width: 3.2rem;
+    padding: 0.1rem 0 0.1rem 1.1rem;
+    outline: none;
+    border: 1px solid transparent;
+    background-color: transparent;
+  }
+  
+  #add_to_cart {
+    border-radius: 0;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  
+  .product_detail>* {
+    flex-basis: 100%;
+  }
+  
+  .product_detail button {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .product_detail .tabs {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .product_detail .tabs button {
+    padding: 0.5rem 2rem 0.5rem 0;
+    cursor: pointer;
+  }
+  
+  .product_detail .tabs button:hover {
+    color: thistle
+  }
+  
+  .product_detail .tabs_content {
+    padding: 1.5rem 0;
+  }
+  
+  .product_detail .tabs_data {
+    display: none;
+  }
+  
+  .similar_products {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+  }
+  
+  .similar_products img {
+    width: 15%;
+    margin: 0 0.2rem;
+  }
+  
+  .similar_products button {
+    min-width: 3rem;
+    border: 0;
+    z-index: 1;
+    background-color: white;
+  }
+  
+  .similar_products button:hover {
+    background-color: #d9d9d9;
+  }
+  
+  .similar_products #similar_prev {
+    width: 4rem;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .similar_products #similar_next {
+    width: 4rem;
+    z-index: 1;
+    cursor: pointer;
+  }

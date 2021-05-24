@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SITENAME</title>
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/style.css">
+  <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_detail.css">
+  <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_list.css">
+  <link rel="stylesheet" href="<?=URLROOT?>/public/css/cart.css">
 
 </head>
 
@@ -16,11 +19,11 @@
 
     <nav>
       <ul class="nav_links">
-        <li id="home_link"><a href="/pages/home">Home</a></li>
-        <li><a href="/pages/home">Product</a></li>
-        <li><a href="/pages/home">Design</a></li>
-        <li><a href="/pages/about">About</a></li>
-        <li><a href="/pages/service">Service</a></li>
+        <li id="home_link"><a href="<?=URLROOT?>/pages/home">Home</a></li>
+        <li><a href="<?=URLROOT?>/products/list">Product</a></li>
+        <li><a href="<?=URLROOT?>/pages/home">Design</a></li>
+        <li><a href="<?=URLROOT?>/pages/about">About</a></li>
+        <li><a href="<?=URLROOT?>/pages/service">Service</a></li>
       </ul>
     </nav>
 
@@ -29,5 +32,5 @@
       <div class="btn"><img src="<?=URLROOT?>/public/img/search.png " alt="icon_search "></div>
     </div>
 
-    <a href="" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
+    <a href="<?=URLROOT?>/pages/cart" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
   </header>

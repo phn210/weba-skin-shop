@@ -202,6 +202,8 @@
 
 </section>
 
+<script src="<?=URLROOT?>/public/javascript/product_list.js"></script>
+
 <?php
     require_once '../app/views/common/footer.php';
 ?>
