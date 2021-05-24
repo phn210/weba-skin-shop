@@ -105,15 +105,15 @@
   <div class="sort"></div>
   <div class="product_list">
   <?php
-    $cm = "select image from product where id = 1";
-    $this->load->libraries('Database');
-    $result = $this->Database->query($cm);
+    $sql = 'select * from product';
+    include('../libraries/Database');
+    $result = $this->Database->query($sql);
     // for ( $i = 1; $i <=4; $i++) {
       while($row = mysqli_fetch_array($result))  
                 {  
                   echo '   
                       <!-- <div class="product">
-                      <a href="">
+                      <a href="detail.php?id = <?php echo $row[id]?>">
                         <img src="src="data:image/jpeg;base64,'.base64_encode($row['product_name'] ).'" height="200" width="200" class="img-thumnail"" alt="product_image">
                         <p>Product name</p>
                       </a>
