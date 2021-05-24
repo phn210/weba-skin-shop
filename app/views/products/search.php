@@ -3,7 +3,7 @@
 ?>
 
 <?php
-    var_dump($data['products']);
+    //var_dump($data['products']);
 ?>
 
 <section class="main_section">
@@ -62,24 +62,38 @@
 
   <div class="product_list">
     <?php
-    if(is_array($data['products'])){
+    if(count($data['products']) > 0){
       foreach($data['products'] as $product) {
         echo'
         <div class="product">
           <a href="'.URLROOT.'/products/list/'.$product->product_id.'">
-            <img src="'.base64_encode($product->image).'" alt="product_image">
+            <img src="data:image/jpeg;base64,'.$product->image.'" alt="product_image">
             <p>'.$product->name.'</p>
           </a>
           <div class="product_prices">
-            <div id="retail_price">200.000</div>
-            <div id="discounted">100.000</div>
+        ';
+          if($product->discount > 0) {
+            echo '
+            <div id="before-discount">'.$product->price.'</div>
+            <div id="after-discount">'.$product->price*(1-$product->discount).'</div>
+            ';
+          } else {
+            echo '
+            <div id="retail-price">'.$product->price.'</div>
+            ';
+          }
+            
+        echo'
           </div>
         </div>
         ';
       }
-    } else if(is_null($data['products'])) {
-        echo'None Founded';
+    
     } else {
+        echo 'Không tìm thấy kết quả phù hợp!';
+    
+    } 
+    /*else {
       echo'
         <div class="product">
           <a href="'.URLROOT.'/products/list/'.$products->product_id.'">
@@ -93,6 +107,7 @@
         </div>
         ';
     }
+    */
 
     
     ?>

@@ -10,8 +10,9 @@
   }
   
   .categories {
-    flex-basis: 100%;
+    flex: 3;
     min-width: 200px;
+    max-width: 250px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -27,6 +28,10 @@
   .categories a {
     display: block;
     color: black;
+  }
+
+  .categories a:hover {
+    color:white;
   }
   
   .categories h2,
@@ -48,6 +53,8 @@
   }
   
   .product_list {
+    margin-top: 0.8rem;
+    flex: 7;
     display: grid;
     height: fit-content;
     grid-template-columns: repeat(4, 1fr);

@@ -6,12 +6,12 @@ class Device {
         $this->db = new Database;
     }
 
-    public function findById($id) {
+    public function findById($device_id) {
         // Prepare statement
-        $this->db->query('SELECT * FROM devices WHERE id = :id');
+        $this->db->query('SELECT * FROM devices WHERE device_id = :device_id');
 
         // Bind parameters with variables
-        $this->db->bind(':id', $id);
+        $this->db->bind(':device_id', $device_id);
 
         return $this->db->single();
 

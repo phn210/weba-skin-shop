@@ -17,20 +17,82 @@ class Products extends Controller {
         $this->view("products/detail", $product);
     }
 
-    public function list() {
-        $products = $this->productModel->getAllProducts();
-        $data = [
-            'products' => $products
-        ];
-        $this->view("products/list", $products);
-    }
-    /*
-    public function list($data){
-        $products = [];
+    
+    public function list($category = []){
+        // Categories container
+        $devices = $this->deviceModel->getAllDevices();
+                
+                
+        foreach($devices as $device) {
+            $brands = $this->brandModel->getBrandsByDevice($device->device_id);
+            foreach($brands as $brand) {
+                $productLines = $this->productLineModel->getLinesByDeviceAndBrand($device->device_id, $brand->brand_id);
+                $brand->productLines = $productLines;
+            }
+            $device->brands =  $brands;
+        }
 
-        $this->view("products/list", $products);
+
+        // Product list
+        $category = array_values($category);
+        $layer = 0;
+        $products = [];
+        $params = [
+            'device_id' => 0,
+            'brand_id' => 0,
+            'product_line_id' => 0
+        ];
+        $names = [];
+
+        if(isset($category[0])) {
+            $layer = 1;
+            $params['device_id'] = $category[0];
+            $foundDevice = $this->deviceModel->findById($params['device_id']);
+            if (count(array($foundDevice)) > 0) array_push($names, $foundDevice->name);
+            if(isset($category[1])) {
+                $layer = 2;
+                $params['brand_id'] = $category[1];
+                $foundBrand = $this->brandModel->findById($params['brand_id']);
+                if(count(array($foundBrand)) > 0) array_push($names, $foundBrand->name);
+                if(isset($category[2])) {   
+                    $layer = 3;
+                    $params['product_line_id'] = $category[2];
+                    $foundProductLine = $this->productLineModel->findById($params['product_line_id']);
+                    if(count(array($foundProductLine)) > 0) array_push($names, $foundProductLine->name);
+                }
+            }
+        }
+
+        switch ($layer){
+            case 0:
+                $products = $this->productModel->getAllProducts();
+                break;
+            case 1:
+                $products = $this->productModel->findByDevice($params['device_id']);
+                break;
+            case 2:
+                $products = $this->productModel->findByDeviceAndBrand($params['device_id'], $params['brand_id']);
+                break;
+            case 3:
+                $products = $this->productModel->findByProductLine($params['product_line_id']);
+                break;
+            default: break;
+        }
+
+        foreach($products as $product){
+            $product->image = base64_encode($this->imageModel->getProductThumbnail($product->product_id)->image);
+        }
+
+        $data = [
+            'layer' => $layer,
+            'names' => $names,
+            'products' => $products,
+            'devices' => $devices
+        ];
+
+        $this->view("products/list", $data);
     }
-    */
+    
 
     public function search($keyword) {
 
@@ -51,7 +113,7 @@ class Products extends Controller {
         // Search result
         $products = $this->productModel->findProductsByName($keyword);
         foreach($products as $product){
-            $product->image=json_decode($product->image);
+            $product->image = base64_encode($this->imageModel->getProductThumbnail($product->product_id)->image);
         }
 
         $data = [

@@ -27,10 +27,10 @@
       </ul>
     </nav>
 
-    <div class="search_bar">
+    <form class="search_bar">
       <input type="text " placeholder="Search.. " name="keyword" id="keyword">
-      <div class="btn"><img src="<?=URLROOT?>/public/img/search.png " alt="icon_search "></div>
-    </div>
+      <input type="submit" class="btn"><img src="<?=URLROOT?>/public/img/search.png " alt="icon_search "></input>
+    </form>
 
     <a href="<?=URLROOT?>/pages/cart" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
   </header>

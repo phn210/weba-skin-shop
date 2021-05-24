@@ -147,11 +147,15 @@
   font-weight: bold;
 }
 
-#retail_price {
+#retail-price {
+  
+}
+
+#before-discount {
   text-decoration: line-through;
 }
 
-#discounted {
+#after-discount {
   color: red;
 }
 

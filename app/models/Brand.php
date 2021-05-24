@@ -6,12 +6,12 @@ class Brand {
         $this->db = new Database;
     }
 
-    public function findById($id) {
+    public function findById($brand_id) {
         // Prepare statement
-        $this->db->query('SELECT * FROM brands WHERE id = :id');
+        $this->db->query('SELECT * FROM brands WHERE brand_id = :brand_id');
 
         // Bind parameters with variables
-        $this->db->bind(':id', $id);
+        $this->db->bind(':brand_id', $brand_id);
 
         return $this->db->single();
     }

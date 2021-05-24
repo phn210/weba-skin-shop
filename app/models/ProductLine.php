@@ -6,12 +6,12 @@ class ProductLine {
         $this->db = new Database;
     }
 
-    public function findById($id) {
+    public function findById($line_id) {
         // Prepare statement
-        $this->db->query('SELECT * FROM product_lines WHERE id = :id');
+        $this->db->query('SELECT * FROM product_lines WHERE line_id = :line_id');
 
         // Bind parameters with variables
-        $this->db->bind(':id', $id);
+        $this->db->bind(':line_id', $line_id);
 
         return $this->db->single();
     }
