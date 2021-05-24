@@ -9,11 +9,17 @@ class Products extends Controller {
 
     public function detail($id) {
         $product = $this->productModel->getProductById($id);
+        $data = [
+            'product' => $product
+        ];
         $this->view("products/detail", $product);
     }
 
     public function list() {
         $products = $this->productModel->getAllProducts();
+        $data = [
+            'products' => $products
+        ];
         $this->view("products/list", $products);
     }
     /*
@@ -24,9 +30,14 @@ class Products extends Controller {
     }
     */
 
-    public function search($keyword) {
-        
+    public function search() {
+        $products = $this->productModel->getAllProducts();
 
-        $this->view("products/search", $keyword);
+
+        $data = [
+            'keyword' => $keyword,
+            'products' => $products
+        ];
+        $this->view("products/search", $data);
     }
 }

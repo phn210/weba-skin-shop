@@ -8,16 +8,13 @@ class Product {
 
     public function findProductByName($name) {
         // Prepare statement
-        $this->db->query('SELECT * FROM products WHERE name = :name');
+        $this->db->query('SELECT * FROM products WHERE name like %:name%');
 
         // Bind parameters with variables
         $this->db->bind(':name', $name);
 
-        // Check result
-        if($this->db->rowCount() > 0) {
-            return $this->db->resultSet();
-        } else 
-            return [];
+        return $this->db->resultSet();
+
     }
 
     public function findById($id) {
@@ -27,21 +24,15 @@ class Product {
         // Bind parameters with variables
         $this->db->bind(':id', $id);
 
-        // Check result
-        if($this->db->rowCount() > 0) {
-            return $this->db->single();
-        } else 
-            return [];
+        return $this->db->single();
+
     }
 
     public function getAllProducts(){
         // Prepare statement
         $this->db->query('SELECT * FROM products');
 
-        // Check result
-        if($this->db->rowCount() > 0) {
-            return $this->db->resultSet();
-        } else 
-            return [];
+        // Get result set
+        return $this->db->resultSet();
     }
 }
