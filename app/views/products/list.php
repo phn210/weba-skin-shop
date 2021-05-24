@@ -11,40 +11,77 @@
 <div class="container_product_list">
   <ul class="categories">
     <li class="type">
+      <img src="" alt="type_image" />
       <a href="">
-        <h2>Type 1</h2>
-        <ul class="brands">
+        <span>Laptop, macbook</span>
+        <ul class="brand">
           <li class="brand">
             <a href="">
-              <h3>Brand 1</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
+              <span>Dell</span>
+            </a>   
+          </li>
+          <li class="brand">
+            <a href="">
+              <span>Asus</span>
+            </a>   
+          </li>
+          <li class="brand">
+            <a href="">
+              <span>Acer</span>
+            </a>   
+          </li>
+          <li class="brand">
+            <a href="">
+              <span>HP</span>
+            </a>   
+          </li>
+          <li class="brand">
+            <a href="">
+              <span>Lenovo</span>
+            </a>   
+          </li>
+          <li class="brand">
+            <a href="">
+              <span>Macbook</span>
+            </a>   
+          </li>
+          <!-- <li class="brand">
+            <a href="">
+              <span>Brand Name</span>
+              <ul class="product_line">
+                <li class="product_line"><a href="">Product Line</a></li>
+                <li class="product_line"><a href="">Product Line</a></li>
+              </ul>
+            </a>
+          </li> -->
+        </ul>
+      </a>
+    </li>
+    <li class="type">
+    <img src="" alt="type_image" />
+      <a href="">
+        <span>Điện thoại</span>
+        <ul class="brand">
+          <li class="brand">
+            <img src="" alt="Iphone_logo" />
+            <a href="">
+              <span>Iphone</span>
+              <ul class="product_line"> 
+                <li class="product_line"><a href="">Iphone 6, 6s, 6 plus, 6s plus</a></li>
+                <li class="product_line"><a href="">Iphone 7, 7 plus</a></li>
+                <li class="product_line"><a href="">Iphone 8, 8 plus</a></li>
+                <li class="product_line"><a href="">Iphone X, Xs Max</a></li>
               </ul>
             </a>
           </li>
           <li class="brand">
+            <img src="" alt="Samsung_logo" />
             <a href="">
-              <h3>Brand 2</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
+              <span>Samsung</span>
+              <ul class="product_line">
+                <li class="product_line"><a href="">Galaxy s7</a></li>
+                <li class="product_line"><a href="">Galaxy s8</a></li>
+                <li class="product_line"><a href="">Galaxy s9</a></li>
               </ul>
             </a>
           </li>
@@ -52,93 +89,45 @@
       </a>
     </li>
     <li class="type">
+      <img src="" alt="type_image" />
       <a href="">
-        <h2>Type 2</h2>
-        <ul class="brands">
-          <li class="brand">
-            <a href="">
-              <h3>Brand 1</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-          <li class="brand">
-            <a href="">
-              <h3>Brand 2</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-        </ul>
+        <span>Ipad</span>
       </a>
     </li>
     <li class="type">
+      <img src="" alt="type_image" />
       <a href="">
-        <h2>Type 3</h2>
-        <ul class="brands">
-          <li class="brand">
-            <a href="">
-              <h3>Brand 1</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-          <li class="brand">
-            <a href="">
-              <h3>Brand 2</h3>
-              <ul class="product_lines">
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-                <li class="product_line">
-                  <a href="">
-                    <h4>Product Line</h4>
-                  </a>
-                </li>
-              </ul>
-            </a>
-          </li>
-        </ul>
+        <span>Máy ảnh</span>
       </a>
     </li>
-
   </ul>
 
   <div class="sort"></div>
   <div class="product_list">
-    <div class="product">
+  <?php
+    $cm = "select image from product where id = 1";
+    $this->load->libraries('Database');
+    $result = $this->Database->query($cm);
+    // for ( $i = 1; $i <=4; $i++) {
+      while($row = mysqli_fetch_array($result))  
+                {  
+                  echo '   
+                      <!-- <div class="product">
+                      <a href="">
+                        <img src="src="data:image/jpeg;base64,'.base64_encode($row['product_name'] ).'" height="200" width="200" class="img-thumnail"" alt="product_image">
+                        <p>Product name</p>
+                      </a>
+                      <div class="product_prices">
+                        <div id="retail_price">200.000</div>
+                        <div id="discounted">100.000</div>
+                      </div>
+                    </div>
+                  ';  
+                } 
+    
+
+    ?>
+    <!-- <div class="product">
       <a href="">
         <img src="../img/test1.jpg" alt="product_image">
         <p>Product name</p>
@@ -187,7 +176,7 @@
         <div id="retail_price">200.000</div>
         <div id="discounted">100.000</div>
       </div>
-    </div>
+    </div> -->
     <div class="page_control">
       <button><img src="../img/left-arrow.png" alt=""></button>
       <button>1</button>
