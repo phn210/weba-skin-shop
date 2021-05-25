@@ -66,7 +66,7 @@
       foreach($data['products'] as $product) {
         echo'
         <div class="product">
-          <a href="'.URLROOT.'/products/list/'.$product->product_id.'">
+          <a href="'.URLROOT.'/products/detail/'.$product->product_id.'">
             <img src="data:image/jpeg;base64,'.$product->image.'" alt="product_image">
             <p>'.$product->name.'</p>
           </a>

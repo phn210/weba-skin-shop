@@ -27,7 +27,7 @@
       </ul>
     </nav>
 
-    <form class="search_bar" action="<?=URLROOT?>/products/search" method="GET">
+    <form class="search_bar" action="<?=URLROOT?>/products/search" name="search_form" method="GET">
       <input type="text" placeholder="Search.. " name="keyword" id="keyword">
       <div class="btn"><img src="<?=URLROOT?>/public/img/search.png" alt="icon_search "></div>
     </form>
