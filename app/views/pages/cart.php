@@ -17,6 +17,10 @@
       <div class="order">
         <h2>Chi tiết đơn hàng</h2>
         <ul class="order_items">
+        <?php if($ROWS):?>
+            <?php foreach($ROWS as $row):?>
+            <?php endforeach;?>
+        <?php endif;?> 
         </ul>
 
         <div class="order_summary">

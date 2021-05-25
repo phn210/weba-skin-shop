@@ -1,7 +1,5 @@
 items = [
-    { name: 'San pham 01', id: 1, price: 100000, discount: 0.1, quantity: 1 },
-    { name: 'San pham 02', id: 2, price: 80000, discount: 0.2, quantity: 1 },
-    { name: 'San pham 03', id: 3, price: 150000, discount: 0.5, quantity: 1 }
+    
 ]
 
 function render() {
@@ -63,7 +61,7 @@ function render() {
 }
 
 function add() {
-    items.push({ name: 'San pham 01', id: 1, price: 100000, discount: 0.1, quantity: 1 })
+    items.push()
     console.log(removeButtons.length);
     render();
 }

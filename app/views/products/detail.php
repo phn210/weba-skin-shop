@@ -65,7 +65,7 @@
           <span id="quantity-to-add"></span>
         <button id="btn_add">+</button>
         </span>
-        <button id="add_to_cart">Add to cart</button>
+        <button onclick="window.location.href='<?=URLROOT?>/pages/add_to_cart/<?=$data['product']->product_id?>'" id="add_to_cart">Add to cart</button>
 
       </div>
     </div>
