@@ -9,12 +9,21 @@ class Products extends Controller {
          
     }
 
-    public function detail($id) {
-        $product = $this->productModel->getProductById($id);
+    public function detail($id = []) {
+        $id = array_values($id);
+        $product_id = $id[0];
+        $product = $this->productModel->findById($product_id);
+        $line = $this->productLineModel->findById($product->product_line_id);
+        // $image = $this->imageModel->getProductThumbnail($product_id);
+        $image = base64_encode($this->imageModel->getProductThumbnail($product_id));
         $data = [
-            'product' => $product
+            'product' => $product,
+            'line' => $line,
+            'image' => $image
         ];
-        $this->view("products/detail", $product);
+        $this->view("products/detail", $data);
+
+       
     }
 
     

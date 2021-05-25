@@ -16,7 +16,7 @@ class Image{
         return $this->db->single();
     }
 
-    public function getProductImages(){
+    public function getProductImages($productId){
         // Prepare statement
         $this->db->query('SELECT * FROM image_product WHERE product_id = :product_id');
 
