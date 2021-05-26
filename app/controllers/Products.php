@@ -14,7 +14,13 @@ class Products extends Controller {
         $product_id = $id[0];
         $product = $this->productModel->findById($product_id);
         $line = $this->productLineModel->findById($product->product_line_id);
-        $image = base64_encode($this->imageModel->getProductThumbnail($product_id)->image);           
+        // $image = base64_encode($this->imageModel->getProductThumbnail($product_id)->image);        
+        $product_images = $this->imageModel->getProductImages($product_id);
+        foreach($product_images as $product_image) {
+            $product_image = base64_encode($product_image);
+        }
+        
+        
         $similar_products = $this->productModel->findByProductLine($product->product_line_id);
         $offset = array_search($product, $similar_products);
         $similar_products = array_splice($similar_products, $offset, 1);
@@ -27,7 +33,7 @@ class Products extends Controller {
         $data = [
             'product' => $product,
             'line' => $line,
-            'image' => $image,
+            'product_images' => $product_images,
             'similar_images' => $similar_images,
             'similar_products' => $similar_products
         ];
