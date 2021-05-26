@@ -11,12 +11,17 @@
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_detail.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_list.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/cart.css">
-
+  <link rel="stylesheet" href="<?=URLROOT?>/public/css/service.css">
+  <link rel="stylesheet" href="<?=URLROOT?>/public/css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 
 <body style="background: url(<?=URLROOT?>/public/img/home/logo/home_background.png");>
-  <header>
+  <header id="header">
     <img src="<?=URLROOT?>/public/img/logo.png" alt="logo" class="logo">
+    <div id="mobile-menu" class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
 
     <nav>
       <ul class="nav_links">
@@ -36,3 +41,28 @@
     <a href="<?=URLROOT?>/carts/cart" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
 
   </header>
+  <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+        mobileMenu.onclick = function() {
+            var isClose = header.clientHeight === headerHeight;
+            if (isClose) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+        }
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var i=0;i<menuItems.length;i++) {
+            var menuItem = menuItems[i];
+            menuItem.onclick = function(event) {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if(isParentMenu) {
+                    event.preventDefault();
+                } else {
+                    header.style.height = null;
+                }
+            }
+        }
+      </script>
