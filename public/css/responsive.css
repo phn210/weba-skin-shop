@@ -4,7 +4,7 @@
 }
 /* Mobile */
 @media (max-width: 46.1875em) {
-    
+
 }
 /* Tablet & Mobile */
 @media (max-width: 63.9375em) {
@@ -28,5 +28,16 @@
     }
     header .mobile-menu-btn {
         display: block;
-    }    
+    }
+    .cart {
+        position: fixed;
+        top: 8px;
+        right: 10px;
+      } 
+    .search_bar {
+        position: fixed;
+        justify-content: center;
+        width: 60%;
+        top: 8px;
+    }
 }

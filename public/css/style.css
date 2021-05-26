@@ -114,11 +114,6 @@ header .mobile-menu-btn {
   height: 1rem;
 }
 
-/* .cart {
-  position: fixed;
-  top: 8px;
-  right: 50px;
-} */
 .cart img {
   height: 2rem;
 }
@@ -134,7 +129,7 @@ header .mobile-menu-btn {
 
 /* Footer */
 
-footer {
+ooter {
   /*padding-left: 50rem;*/
   position: absolute;
   bottom: 0;
