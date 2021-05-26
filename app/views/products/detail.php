@@ -90,7 +90,7 @@
                 for ($i = 0; $i < 10; $i++) {
                 echo'
                 <a href="'.URLROOT.'/products/detail/'.$data['similar_products'][$i]->product_id.'">
-                  <img class="similar-thumbnail" src="data:image/jpeg;base64,'.$data['similar_images'].'" alt="similar_ product_image">
+                  <img class="similar-thumbnail" src="data:image/jpeg;base64,'.$data['similar_images'][$i].'" alt="similar_ product_image">
                 </a>
               </div>';
                 }
