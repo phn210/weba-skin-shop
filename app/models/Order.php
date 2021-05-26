@@ -6,6 +6,6 @@ class Order {
         $this->db = new Database;
     }
 
-    public addOrder(){}
+    //public function addOrder(){}
 
 ?>
