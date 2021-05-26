@@ -18,7 +18,7 @@
       <div class="samples">
         <button id="sample_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
         <div class="thumbnail-wrapper">
-          <div class="thumbnails">=
+          <div class="thumbnails">
           <?php 
             echo'
             <img class="sample-thumbnail" src="data:image/jpeg;base64,'.$data['image'].'" alt="product_image">           
