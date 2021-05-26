@@ -38,7 +38,7 @@ class Products extends Controller {
             'similar_images' => $similar_images,
             'similar_products' => $similar_products
         ];
-        var_dump($product_images);
+        //var_dump($product_images);
         $this->view("products/detail", $data);
     }
 

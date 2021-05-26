@@ -79,3 +79,4 @@ function updateQuantity(index, quantity) {
 }
 
 render();
+

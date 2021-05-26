@@ -1,7 +1,7 @@
 <?php
     require_once '../app/views/common/header.php';
 ?>
-
+<?php var_dump($_SESSION['Cart']);?>
 <section class="main_section">
 
     <div class="product_directory">
@@ -37,6 +37,7 @@
           echo '
           <hr>
         <br>
+        <span id="product-id" style="display:none">'.$data['product']->product_id.'</span>
         <p>Hãng: '.$data['line']->name.' </p>
         <p>Xuất xứ:'.$data['product']->country.'</p>
         <p></p>
@@ -59,7 +60,7 @@
           <span id="quantity-to-add"></span>
         <button id="btn_add">+</button>
         </span>
-        <button onclick="window.location.href='<?=URLROOT?>/pages/add_to_cart/<?=$data['product']->product_id?>'" id="add_to_cart">Add to cart</button>
+        <button type="submit" id="add-to-cart">Add to cart</button>
 
       </div>
     </div>

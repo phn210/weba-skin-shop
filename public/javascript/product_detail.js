@@ -135,3 +135,22 @@ for (let i = 0; i < tabs.length; i++) {
         tabContent.innerHTML = tabsData[i].innerHTML
     })
 }
+
+
+document.getElementById('add-to-cart').addEventListener('click', addItemToCart)
+
+function addItemToCart(){
+    var xhr = new XMLHttpRequest();
+
+    var id = parseInt(document.getElementById('product-id').innerHTML);
+    var quantity = parseInt(document.getElementById('quantity-to-add').childNodes[0].value)
+
+    //xhr.open('GET', '/weba-skin-shop/carts/ajaxAddItemToCart/id='+id+'quantity='+quantity, true)
+    xhr.open('GET', '/weba-skin-shop/carts/addItemToCart/'+id+'/'+quantity, true)
+
+    xhr.onload = function() {
+        console.log('Done')
+    }
+
+    xhr.send()
+}
