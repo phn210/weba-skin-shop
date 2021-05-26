@@ -25,7 +25,7 @@ class Carts extends Controller {
             $product_ids = array_column($_SESSION['Cart'], 'product_id');
             if (in_array($params['product_id'], $product_ids)) {
                 $key = array_search($params['product_id'], $product_ids);
-                $_SESSION['Cart'][$key]['quantity']++;
+                $_SESSION['Cart'][$key]['quantity'] += $params['quantity'];
             } else {
                 $_SESSION['Cart'][] = $params;
             }
@@ -38,6 +38,52 @@ class Carts extends Controller {
            
     }
 
+    
+    public function ajaxAddItemToCart() {
+        /*
+        $item = array_values($item);
+
+        $params = [
+            'product_id' => 0,
+            'quantity' => 1
+        ];
+
+        if(isset($item[0])) {
+            $params['product_id'] = $item[0];
+            if(isset($item[1])) {
+                $params['quantity'] = $item[1];
+            }
+        }
+        */
+
+        if(isset($_GET['id']) && isset($_GET['quantity'])){
+            var_dump($_SESSION['Cart']);
+            $id = $_GET['id'];
+            $quantity = $_GET['quantity'];
+            if (isset($_SESSION['Cart'])) {
+                $product_ids = array_column($_SESSION['Cart'], 'product_id');
+                if (in_array($id, $product_ids)) {
+                    $key = array_search($id, $product_ids);
+                    $_SESSION['Cart'][$key]['quantity'] += $quantity;
+                } else {
+                    $arr = array();
+                    $arr['product_id'] = $id;
+                    $arr['quantity'] = $quantity;
+                    $_SESSION['Cart'][] = $arr;
+                }
+            } else {
+                $arr = array();
+                $arr['product_id'] = $id;
+                $arr['quantity'] = $quantity;
+                $_SESSION['Cart'][] = $arr;
+            }
+            unset($_SESSION['Cart']);
+        }
+
+        //unset($_SESSION['Cart']);
+        //var_dump($_SESSION);     
+    }
+    
     public function checkout(){
         $items = isset($_SESSION['Cart']) ? $_SESSION['Cart'] : [];
         $products = [];

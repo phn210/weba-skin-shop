@@ -24,7 +24,7 @@ class Products extends Controller {
         
         $similar_products = $this->productModel->findByProductLine($product->product_line_id);
         $offset = array_search($product, $similar_products);
-        $similar_products = array_splice($similar_products, $offset, 1);
+        // $similar_products = array_splice($similar_products, $offset, 1);
         // $similar_products = array_diff($similar_products, array($product));
         $similar_images = [];
         foreach ($similar_products as $similar_product) {
@@ -38,7 +38,7 @@ class Products extends Controller {
             'similar_images' => $similar_images,
             'similar_products' => $similar_products
         ];
-        var_dump($product_images);
+        // var_dump(count($similar_products));
         $this->view("products/detail", $data);
     }
 
