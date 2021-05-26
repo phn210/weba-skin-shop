@@ -21,11 +21,10 @@
           <!-- <div class="thumbnails"> -->
           <?php 
             for ($i = 0; $i < count($data['product_images']); $i++) {
-              echo'
+            echo'
               <div class="thumbnails">
                 <img class="sample-thumbnail" src="data:image/jpeg;base64,'.$data['product_images'][$i].'" alt="product_image">           
               </div>
-            }
             ';
           }
           ?>

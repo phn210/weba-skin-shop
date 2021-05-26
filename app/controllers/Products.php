@@ -15,9 +15,10 @@ class Products extends Controller {
         $product = $this->productModel->findById($product_id);
         $line = $this->productLineModel->findById($product->product_line_id);
         // $image = base64_encode($this->imageModel->getProductThumbnail($product_id)->image);        
-        $product_images = $this->imageModel->getProductImages($product_id);
-        foreach($product_images as $product_image) {
-            $product_image = base64_encode($product_image);
+        $raw_images = $this->imageModel->getProductImages($product_id);
+        $product_images = [];
+        foreach($raw_images as $product_image) {
+            $product_images[] = base64_encode($product_image->image);
         }
         
         
@@ -37,6 +38,7 @@ class Products extends Controller {
             'similar_images' => $similar_images,
             'similar_products' => $similar_products
         ];
+        var_dump($product_images);
         $this->view("products/detail", $data);
     }
 
