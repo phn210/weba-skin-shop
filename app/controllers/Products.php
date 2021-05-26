@@ -14,16 +14,24 @@ class Products extends Controller {
         $product_id = $id[0];
         $product = $this->productModel->findById($product_id);
         $line = $this->productLineModel->findById($product->product_line_id);
-        // $image = $this->imageModel->getProductThumbnail($product_id);
-        $image = base64_encode($this->imageModel->getProductThumbnail($product_id));
+        $image = base64_encode($this->imageModel->getProductThumbnail($product_id));           
+        $similar_products = $this->productModel->findByProductLine($product->product_line_id);
+        $offset = array_search($product, $similar_products);
+        $similar_products = array_splice($similar_products, $offset, 1);
+        // $similar_products = array_diff($similar_products, array($product));
+        $similar_images = [];
+        foreach ($similar_products as $similar_product) {
+            $s_image = base64_encode($this->imageModel->getProductThumbnail($similar_product->product_id));
+            array_push($similar_images, $s_image);
+        }
         $data = [
             'product' => $product,
             'line' => $line,
-            'image' => $image
+            'image' => $image,
+            'similar_images' => $similar_images,
+            'similar_products' => $similar_products
         ];
         $this->view("products/detail", $data);
-
-       
     }
 
     

@@ -18,20 +18,10 @@
       <div class="samples">
         <button id="sample_prev"><img src="<?=URLROOT?>/public/img/left-arrow.png"></button>
         <div class="thumbnail-wrapper">
-          <div class="thumbnails">
-            <!-- <img class="sample-thumbnail" src="../img/test1.jpg">
-            <img class="sample-thumbnail" src="../img/test2.jpg">
-            <img class="sample-thumbnail" src="../img/test3.jpg">
-            <img class="sample-thumbnail" src="../img/test4.jpg">
-            <img class="sample-thumbnail" src="../img/test1.jpg">
-            <img class="sample-thumbnail" src="../img/test2.jpg">
-            <img class="sample-thumbnail" src="../img/test3.jpg">
-            <img class="sample-thumbnail" src="../img/test4.jpg">
-          </div> -->
+          <div class="thumbnails">=
           <?php 
             echo'
-            <img class="sample-thumbnail" src="data:image/jpeg;base64,'.$data['image'].'" alt="product_image">
-            
+            <img class="sample-thumbnail" src="data:image/jpeg;base64,'.$data['image'].'" alt="product_image">           
           </div>'
           ?>
         </div>
@@ -89,27 +79,29 @@
         <button id="similar_prev"><img src="../img/left-arrow.png"></button>
         <div class="thumbnail-wrapper">
           <div class="thumbnails">
-            <!-- <img class="similar-thumbnail" src="../img/test1.jpg">
-            <img class="similar-thumbnail" src="../img/test2.jpg">
-            <img class="similar-thumbnail" src="../img/test3.jpg">
-            <img class="similar-thumbnail" src="../img/test4.jpg">
-            <img class="similar-thumbnail" src="../img/test1.jpg">
-            <img class="similar-thumbnail" src="../img/test2.jpg">
-            <img class="similar-thumbnail" src="../img/test3.jpg">
-            <img class="similar-thumbnail" src="../img/test4.jpg">
-            <img class="similar-thumbnail" src="../img/test1.jpg">
-            <img class="similar-thumbnail" src="../img/test2.jpg">
-            <img class="similar-thumbnail" src="../img/test3.jpg">
-            <img class="similar-thumbnail" src="../img/test4.jpg">
-            <img class="similar-thumbnail" src="../img/test1.jpg">
-            <img class="similar-thumbnail" src="../img/test2.jpg">
-            <img class="similar-thumbnail" src="../img/test3.jpg">
-            <img class="similar-thumbnail" src="../img/test4.jpg"> -->
-
             <?php 
-            echo'
-            <img class="similar-thumbnail" src="data:image/jpeg;base64,'.$data['image'].'" alt="product_image">
-          </div>'
+              $num = count($data['similar_products']);
+              if ($num  > 10) {
+                for ($i = 0; $i < 10; $i++) {
+                echo'
+                <a href="'.URLROOT.'/products/detail/'.$data['similar_products'][$i]->product_id.'">
+                  <img class="similar-thumbnail" src="data:image/jpeg;base64,'.$data['similar_images'].'" alt="similar_ product_image">
+                </a>
+              </div>';
+                }
+              }
+              elseif($num > 0) {
+                for ($i = 0; $i < $num; $i++) {
+                  echo'
+                  <a href="'.URLROOT.'/products/detail/'.$data['similar_products'][$i]->product_id.'">
+                    <img src="data:image/jpeg;base64,'.$data['similar_images'][$i].'" alt="similar_ product_image">
+                  </a>
+                </div>';
+                  }
+              }
+              else {
+                echo "Không có sản phẩm tương tự.";
+              }
           ?>
         </div>
         <button id="similar_next"><img src="../img/right-arrow.png"></button>
