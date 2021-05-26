@@ -2,7 +2,7 @@
     require_once '../app/views/common/header.php';
 ?>
 
-<?php //var_dump($data['layer'], $data['names'])?>
+<?php //var_dump($_SESSION['a']);?>
 
 
 <section class="main_section">
