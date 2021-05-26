@@ -7,4 +7,7 @@
     require_once 'config/config.php';
 
     // Instantiate core class
+    if(!session_id()) {
+        session_start();
+    }
     $init = new Core();

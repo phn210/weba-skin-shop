@@ -8,7 +8,7 @@ class Products extends Controller {
         $this->imageModel = $this->model('Image');
          
     }
-
+    
     public function detail($id = []) {
         $id = array_values($id);
         $product_id = $id[0];
