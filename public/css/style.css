@@ -8,6 +8,14 @@
   list-style: none;
 }
 
+html,
+body {
+  background: url("<?php echo URLROOT;?>/public/img/home/logo/home_background.png");
+  background-size: contain;
+  margin: 0;
+  padding: 0;
+}
+
 
 /*Header & Footer*/
 
@@ -83,7 +91,7 @@ header {
 }
 
 .search_bar .btn:hover {
-  zoom:1.05;
+  zoom: 1.05;
 }
 
 .search_bar img {
@@ -104,3 +112,39 @@ header {
 
 
 /* Footer */
+
+ooter {
+  /*padding-left: 50rem;*/
+  position: absolute;
+  bottom: 0;
+  left: 30rem;
+  padding-bottom: 30rem;
+  height: 100rem;
+}
+
+.facebook_logo {
+  left: 150rem;
+  width: 70rem;
+  height: 70rem;
+  position: relative;
+}
+
+.youtube_logo {
+  left: 175rem;
+  width: 70rem;
+  height: 70rem;
+  position: relative;
+}
+
+.map {
+  border: 5rem #383535;
+  padding: 7rem;
+  width: 350rem;
+  height: 350rem;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  top: 1750rem;
+  right: 150rem;
+  position: absolute;
+}

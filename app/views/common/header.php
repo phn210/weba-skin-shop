@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?=SITENAME?></title>
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/style.css">
+  <!--link rel="stylesheet" href="<?=URLROOT?>/public/css/home.css"-->
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_detail.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_list.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/cart.css">
 
 </head>
 
-<body>
+<body style="background: url(<?=URLROOT?>/public/img/home/logo/home_background.png");>
   <header>
     <img src="<?=URLROOT?>/public/img/logo.png" alt="logo" class="logo">
 
