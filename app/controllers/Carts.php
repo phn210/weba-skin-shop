@@ -22,26 +22,36 @@ class Carts extends Controller {
         }
 
         if (isset($_SESSION['Cart'])) {
-            $prod_ids = array_column($_SESSION['Cart'], 'product_id');
-            if (is_array($ROWS->product_id, $prod_ids)) {
-                $key = array_search($ROWS->product_id, $prod_ids);
-                $_SESSION['CART'][$key]['qty']++;
+            $product_ids = array_column($_SESSION['Cart'], 'product_id');
+            if (in_array($params['product_id'], $product_ids)) {
+                $key = array_search($params['product_id'], $product_ids);
+                $_SESSION['Cart'][$key]['quantity']++;
             } else {
-                $arr = array();
-                $arr['product_id'] = $ROWS->product_id;
-                $arr['qty'] = 1;
-
-                $_SESSION['CART'][] = $arr;
+                $_SESSION['Cart'][] = $params;
             }
         } else {
-            $arr = array();
-            $arr['product_id'] = $ROWS->product_id;
-            $arr['qty'] = 1;
-
-            $_SESSION['CART'][] = $arr;
+            $_SESSION['Cart'][] = $params;
         }
-        
-        
+
+        //unset($_SESSION['Cart']);
+        //var_dump($_SESSION);
+           
+    }
+
+    public function checkout(){
+        $items = isset($_SESSION['Cart']) ? $_SESSION['Cart'] : [];
+        $products = [];
+        foreach($items as $item){
+            $product = $this->productModel->findById($item['product_id']);
+            $product->image = base64_encode($this->imageModel->getProductThumbnail($item['product_id'])->image);
+            $products[] = $product;
+        }
+        $data = [
+            'items' => $items,
+            'products' => $products
+        ];
+
+        $this->view("carts/checkout", $data);
     }
 
     public function createOrder(){

@@ -22,7 +22,7 @@
             <img class =" map " src="<?=URLROOT?>/public/img/home/logo/map.png" alt="Linkskin youtube"/> 
         </a>
     
-    <script src="<?=URLROOT?>/public/javascript/home.js"></script>
+    
     <script src="<?=URLROOT?>/public/javascript/header.js"></script>
     </body>
 </html>

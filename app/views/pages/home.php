@@ -132,6 +132,8 @@
         <div class="text_top" >
             <h1  style="text-align:center">Top sản phẩm bán chạy nhất tháng</h1>
         </div>
+
+        <script src="<?=URLROOT?>/public/javascript/home.js"></script>
 <?php
     require_once '../app/views/common/footer.php';
 ?>
