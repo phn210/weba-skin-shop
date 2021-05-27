@@ -1,8 +1,9 @@
 <?php
     require_once '../app/views/common/header.php';
 ?>
-    <!-- Thẻ Chứa Slideshow -->
-    <div class="slideshow-container">
+    <div class="home-container">
+        <!-- Thẻ Chứa Slideshow -->
+        <div class="slideshow-container">
             <!-- Kết hợp hình ảnh và nội dung cho mội phần tử trong slideshow-->
             <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
@@ -132,6 +133,8 @@
         <div class="text_top" >
             <h1  style="text-align:center">Top sản phẩm bán chạy nhất tháng</h1>
         </div>
+    </div>
+    
 
         <script src="<?=URLROOT?>/public/javascript/home.js"></script>
 <?php
