@@ -37,7 +37,7 @@ class Carts extends Controller {
         }
 
         //unset($_SESSION['Cart']);
-        //var_dump($_SESSION);
+        var_dump($_SESSION);
            
     }
 
@@ -85,6 +85,23 @@ class Carts extends Controller {
 
         //unset($_SESSION['Cart']);
         //var_dump($_SESSION);     
+    }
+
+    public function removeItemFromCart($product_id = []){
+        $product_id = array_values($product_id)[0];
+
+        if(isset($product_id)) {
+            if (isset($_SESSION['Cart'])) {
+                $product_ids = array_column($_SESSION['Cart'], 'product_id');
+                if (in_array($product_id, $product_ids)) {
+                    $key = array_search($product_id, $product_ids);
+                    unset($_SESSION['Cart'][$key]);
+                    $_SESSION['Cart'] = array_values($_SESSION['Cart']);
+                }
+            }
+        }
+        unset($_SESSION['Cart']);
+        
     }
     
     public function checkout(){

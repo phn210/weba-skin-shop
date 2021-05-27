@@ -36,17 +36,32 @@ function render() {
     const removeButtons = document.getElementsByClassName('btn_del_item')
 
     for (let i = 0; i < removeButtons.length; i++) {
-        addButtons[i].addEventListener('click', () => {
+        addButtons[i].onclick = function() {
+            updateQuantity(i, items[i].quantity + 1);
+        }
+
+        subButtons[i].onclick = function(){
+            updateQuantity(i, items[i].quantity - 1);
+        }
+        
+        removeButtons[i].onclick = function(){
+            remove(i);
+        }
+
+        /*
+        addButtons[i].addEventListener('click', function(){
             updateQuantity(i, items[i].quantity + 1);
         })
 
-        subButtons[i].addEventListener('click', () => {
+        subButtons[i].addEventListener('click', function(){
             updateQuantity(i, items[i].quantity - 1);
         })
+        
 
-        removeButtons[i].addEventListener('click', () => {
+        removeButtons[i].addEventListener('click', function(){
             remove(i);
         })
+        */
     }
 
     document.getElementById('total-value').innerText = `${totalValue.toFixed(0)} VNĐ`
@@ -55,9 +70,27 @@ function render() {
 }
 
 function remove(index) {
-    items.splice(index, 1)
-    document.querySelectorAll('.order_item')[index].innerHTML = ""
-    render();
+    
+    var xhr = new XMLHttpRequest();
+
+    var id = parseInt(document.getElementsByClassName("item-id")[index].innerHTML)
+
+    xhr.open('GET', '/weba-skin-shop/carts/removeItemFromCart/'+id, true)
+
+    xhr.onload = function() {
+        items.splice(index, 1)
+        document.getElementsByClassName('btn_del_item')[index].onclick = function() {
+            return false;
+        }
+        document.querySelectorAll('.order_item')[index].innerHTML = ""
+        render();
+        
+        console.log('Done')
+    }
+
+    xhr.send()
+
+    
 }
 
 function updateQuantity(index, quantity) {
