@@ -46,11 +46,18 @@
         
       <div class="product_main_info">
         <?php
+        if($data['product']->discount > 0) {
           echo '
-        <hr>
-        <div id="retail_price">'.$data['product']->price.'</div>
-        <div id="discounted">'.$data['product']->discount.'</div>
-      </div>'
+          <div id="before-discount">'.$data['product']->price.'</div>
+          <div id="after-discount">'.$data['product']->price*(1-$data['product']->discount).'</div>
+          ';
+        } else {
+          echo '
+          <div id="retail-price">'.$data['product']->price.'</div>
+          ';
+        }
+        echo'
+      </div>';
         ?>
       <div class="add_to_cart">
         <span class="quantity">
