@@ -18,9 +18,9 @@ class Carts extends Controller {
         ];
 
         if(isset($item[0])) {
-            $params['product_id'] = $item[0];
+            $params['product_id'] = strip_tags($item[0]);
             if(isset($item[1])) {
-                $params['quantity'] = $item[1];
+                $params['quantity'] = strip_tags($item[1]);
             }
         }
 
@@ -61,8 +61,8 @@ class Carts extends Controller {
 
         if(isset($_GET['id']) && isset($_GET['quantity'])){
             var_dump($_SESSION['Cart']);
-            $id = $_GET['id'];
-            $quantity = $_GET['quantity'];
+            $id = strip_tags($_GET['id']);
+            $quantity = strip_tags($_GET['quantity']);
             if (isset($_SESSION['Cart'])) {
                 $product_ids = array_column($_SESSION['Cart'], 'product_id');
                 if (in_array($id, $product_ids)) {
@@ -88,7 +88,7 @@ class Carts extends Controller {
     }
 
     public function removeItemFromCart($product_id = []){
-        $product_id = array_values($product_id)[0];
+        $product_id = strip_tags(array_values($product_id)[0]);
 
         if(isset($product_id)) {
             if (isset($_SESSION['Cart'])) {
@@ -127,33 +127,19 @@ class Carts extends Controller {
         
         $customer = [
             'id' => 0,
-            'name' => $order->customer->name,
-            'email' => $order->customer->email,
-            'phone' => $order->customer->phone,
-            'address' => $order->customer->address,
+            'name' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->customer->name)),
+            'email' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->customer->email)),
+            'phone' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->customer->phone)),
+            'address' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->customer->address)),
         ];
 
         $order_data = [
             'customer_id' => 0,
-            'total_value' => $order->total_value,
-            'discount' => $order->discount*(-1),
-            'total_money' => $order->total_money,
-            'note' => $order->customer->note
+            'total_value' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->total_value)),
+            'discount' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->discount*(-1))),
+            'total_money' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->total_money)),
+            'note' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->customer->note))
         ];
-
-        /*
-        $items = [];
-
-        for ($i = 0; $i < count($order->order_items); $i++) {
-            array_push($items, [
-                'order_id' => 0,
-                'product_id' => $order->order_items[$i]->productId,
-                'amount' => $order->order_items[$i]->amount,
-                'total_money' => $order->order_items[$i]->totalMoney
-            ]);
-        }
-        */
-        
         
         $newCustomer = $this->customerModel->createCustomer($customer);
 
@@ -170,9 +156,9 @@ class Carts extends Controller {
                 for ($i = 0; $i < count($order->order_items); $i++) {
                     array_push($items, [
                         'order_id' => $order_id,
-                        'product_id' => $order->order_items[$i]->productId,
-                        'amount' => $order->order_items[$i]->amount,
-                        'total_money' => $order->order_items[$i]->totalMoney
+                        'product_id' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->order_items[$i]->productId)),
+                        'amount' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->order_items[$i]->amount)),
+                        'total_money' => preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($order->order_items[$i]->totalMoney))
                     ]);
 
                     array_push($newItems, $this->orderItemModel->createOrderItem($items[$i]));

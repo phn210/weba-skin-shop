@@ -11,7 +11,7 @@ class Products extends Controller {
     
     public function detail($id = []) {
         $id = array_values($id);
-        $product_id = $id[0];
+        $product_id = strip_tags($id[0]);
         $product = $this->productModel->findById($product_id);
         $line = $this->productLineModel->findById($product->product_line_id);     
         $raw_images = $this->imageModel->getProductImages($product_id);
@@ -67,17 +67,17 @@ class Products extends Controller {
 
         if(isset($category[0])) {
             $layer = 1;
-            $params['device_id'] = $category[0];
+            $params['device_id'] = strip_tags($category[0]);
             $foundDevice = $this->deviceModel->findById($params['device_id']);
             if (count(array($foundDevice)) > 0) array_push($names, $foundDevice->name);
             if(isset($category[1])) {
                 $layer = 2;
-                $params['brand_id'] = $category[1];
+                $params['brand_id'] = strip_tags($category[1]);
                 $foundBrand = $this->brandModel->findById($params['brand_id']);
                 if(count(array($foundBrand)) > 0) array_push($names, $foundBrand->name);
                 if(isset($category[2])) {   
                     $layer = 3;
-                    $params['product_line_id'] = $category[2];
+                    $params['product_line_id'] = strip_tags($category[0]);
                     $foundProductLine = $this->productLineModel->findById($params['product_line_id']);
                     if(count(array($foundProductLine)) > 0) array_push($names, $foundProductLine->name);
                 }
@@ -134,7 +134,7 @@ class Products extends Controller {
         // Search result
         if(isset($_GET["keyword"])) $keyword = $_GET["keyword"];
         else $keyword = "";
-        $keyword = preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($keyword))
+        $keyword = preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($keyword));
         $products = $this->productModel->findProductsByName($keyword);
         foreach($products as $product){
             $product->image = base64_encode($this->imageModel->getProductThumbnail($product->product_id)->image);
