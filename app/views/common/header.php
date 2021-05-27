@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_detail.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_list.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/cart.css">
-
+  <link rel="stylesheet" href="<?=URLROOT?>/public/css/service.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 
 <body style="background: url(<?=URLROOT?>/public/img/home/logo/home_background.png");>
@@ -33,6 +34,6 @@
       <div class="btn"><img src="<?=URLROOT?>/public/img/search.png" alt="icon_search "></div>
     </form>
 
-    <a href="<?=URLROOT?>/carts/checkout" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
+    <a href="<?=URLROOT?>/carts/cart" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
 
   </header>
