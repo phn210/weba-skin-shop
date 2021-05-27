@@ -160,8 +160,10 @@ class Carts extends Controller {
 
                     array_push($newItems, $this->orderItemModel->createOrderItem($items[$i]));
                 }
+                //var_dump($items);
             }
         }
+        
         
     }
 }

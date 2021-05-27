@@ -34,6 +34,6 @@
       <div class="btn"><img src="<?=URLROOT?>/public/img/search.png" alt="icon_search "></div>
     </form>
 
-    <a href="<?=URLROOT?>/carts/cart" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
+    <a href="<?=URLROOT?>/carts/checkout" class="cart"><img src="<?=URLROOT?>/public/img/trolley.png " alt="icon_cart "></a>
 
   </header>

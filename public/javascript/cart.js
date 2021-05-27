@@ -56,23 +56,9 @@ function render() {
 
 function remove(index) {
     items.splice(index, 1)
+    document.querySelectorAll('.order_item')[index].innerHTML = ""
     render();
 }
-
-function addQuantity (index) {
-    items[index].quantity++;
-    render()
-}
-
-function subQuantity (index) {
-    if (quantity < 1) {
-        return
-    }
-    items[index].quantity--;
-    render()
-}
-
-
 
 function updateQuantity(index, quantity) {
     if (quantity < 1) {
