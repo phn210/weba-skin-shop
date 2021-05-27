@@ -134,6 +134,7 @@ class Products extends Controller {
         // Search result
         if(isset($_GET["keyword"])) $keyword = $_GET["keyword"];
         else $keyword = "";
+        $keyword = preg_replace('/[^A-Za-z0-9 !@#$%^&*().]/u','', strip_tags($keyword))
         $products = $this->productModel->findProductsByName($keyword);
         foreach($products as $product){
             $product->image = base64_encode($this->imageModel->getProductThumbnail($product->product_id)->image);
