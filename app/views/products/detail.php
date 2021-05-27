@@ -1,7 +1,6 @@
 <?php
     require_once '../app/views/common/header.php';
 ?>
-<?php var_dump($_SESSION['Cart']);?>
 <section class="main_section">
 
     <div class="product_directory">
@@ -113,7 +112,7 @@
           ?>
         </div>
       </div>        
-      <button id="similar_next"><img src="<?=URLROOT?>\public\img\right-arrow.png"></button>
+        <button id="similar_next"><img src="<?=URLROOT?>\public\img\right-arrow.png"></button>
 
     </div>
   </section>
