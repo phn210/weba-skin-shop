@@ -96,11 +96,22 @@ class Carts extends Controller {
             'items' => $items,
             'products' => $products
         ];
-
+        
         $this->view("carts/checkout", $data);
     }
 
     public function createOrder(){
+        /*
+        if(isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email'])) {
+
+        }
+        */
+        $requestPayload = file_get_contents('php://input');
+        $order = json_decode($requestPayload);
+        //$this->view('carts/order_result', $data);
+        var_dump($order);
+
+        
         
     }
 }

@@ -7,10 +7,11 @@
     <div class="containter_order">
       <div class="order_form">
         <h1>THÔNG TIN NGƯỜI ĐẶT HÀNG</h1>
-        <form action="">
-          <input type="text" name="" placeholder="Name" required id="name" class="form-control">
+        <form id="order-form">
+          <input type="text" name="" placeholder="Họ và tên" required id="name" class="form-control">
           <input type="email" name="" placeholder="Email" required id="email" class="form-control">
-          <input type="tel" placeholder="Your Phone Number" required name="phone" id="" class="form-control" />
+          <input type="tel" placeholder="SĐT" required name="" id="phone" class="form-control" />
+          <input type="text" placeholder="Địa chỉ" name="" id="address" class="form-control" />
           <input type="text" name="" placeholder="Yêu cầu (nếu có)" id="note" class="form-control">
           <input class="form_button" type="submit" value="Gửi đơn hàng">
         </form>
@@ -27,7 +28,7 @@
             <a href="'.URLROOT.'/products/detail/'.$data['products'][$i]->product_id.'"><img class="item_image" src="data:image/jpeg;base64,'.$data['products'][$i]->image.'"></a>
             <div class="item_info">
               <div class="item_name"><a href="'.URLROOT.'/products/detail/'.$data['products'][$i]->product_id.'">'.$data['products'][$i]->name.'</a></div>
-              <div class="item_id">Mã: '.$data['products'][$i]->product_id.'</div>
+              <div class="item_id">Mã: <span class="item-id">'.$data['products'][$i]->product_id.'</span></div>
               <div class="item_price">'
           ;
               if ($data['products'][$i]->discount > 0) {
@@ -60,9 +61,9 @@
         </ul>
 
         <div class="order_summary">
-          <p>Tổng giá trị đơn hàng <span id="total-value" class="money">100.000</span></p>
-          <p>Khuyến mãi <span id="discount" class="money">-20.000</span></p>
-          <p>Tổng tiền thanh toán <span id="total-money" class="money">80.000</span></p>
+          <p>Tổng giá trị đơn hàng <span id="total-value" class="money">0</span></p>
+          <p>Khuyến mãi <span id="discount" class="money">0</span></p>
+          <p>Tổng tiền thanh toán <span id="total-money" class="money">0</span></p>
         </div>
       </div>
     </div>

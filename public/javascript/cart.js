@@ -13,12 +13,16 @@ for(var i = 0; i < itemPrices.length; i++) {
     })
 }
 
+let totalValue
+let totalDiscount
+let totalMoney
+
 function render() {
     count++;
     let item_prices = []
-    let totalValue = 0
-    let totalDiscount = 0
-    let totalMoney = 0
+    totalValue = 0
+    totalDiscount = 0
+    totalMoney = 0
 
     for(var j = 0; j < items.length; j++) {
         totalMoney += items[j].quantity * items[j].price
@@ -80,3 +84,56 @@ function updateQuantity(index, quantity) {
 
 render();
 
+document.getElementById('order-form').addEventListener('submit', submitOrder)
+
+function submitOrder(e){
+    e.preventDefault()
+    
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var address = document.getElementById('address').value;
+    var note = document.getElementById('note').value;
+
+    const customer = {
+        name: name,
+        email: email,
+        phone: phone,
+        address: address,
+        note: note
+    }
+
+    itemsId = document.getElementsByClassName("item-id")
+
+    orderItems = []
+
+    for(var i = 0; i < items.length; i++) {
+        orderItems.push({
+            productId: itemsId[i],
+            amount: items[i].quantity,
+            totalMoney: items[i].price * items[i].quantity
+        })
+    }
+
+    const toSend = {
+        customer: customer,
+        order_items: orderItems,
+        total_value: totalValue,
+        discount: totalDiscount,
+        total_money: totalMoney
+    }
+
+    const jsonString = JSON.stringify(toSend)
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/weba-skin-shop/carts/createorder', true)
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    console.log(this.readyState)
+    xhr.onload = function() {
+        console.log(jsonString)
+    }
+
+    xhr.send(jsonString)
+
+}
