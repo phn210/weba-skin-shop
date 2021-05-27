@@ -109,7 +109,7 @@ function submitOrder(e){
 
     for(var i = 0; i < items.length; i++) {
         orderItems.push({
-            productId: itemsId[i],
+            productId: parseInt(itemsId[i].innerHTML),
             amount: items[i].quantity,
             totalMoney: items[i].price * items[i].quantity
         })
@@ -129,9 +129,9 @@ function submitOrder(e){
 
     xhr.open('POST', '/weba-skin-shop/carts/createorder', true)
     xhr.setRequestHeader('Content-Type', 'application/json')
-    console.log(this.readyState)
     xhr.onload = function() {
         console.log(jsonString)
+        console.log(this.responseText)
     }
 
     xhr.send(jsonString)

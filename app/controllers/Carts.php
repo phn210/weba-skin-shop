@@ -3,7 +3,10 @@ class Carts extends Controller {
     public function __construct() {
         $this->productModel = $this->model('Product');
         $this->imageModel = $this->model('Image');
+        $this->customerModel = $this->model('Customer');
         $this->orderModel = $this->model('Order');
+        $this->orderItemModel = $this->model('OrderItem');
+
     }
 
     public function addItemToCart($item = []) {
@@ -101,17 +104,64 @@ class Carts extends Controller {
     }
 
     public function createOrder(){
-        /*
-        if(isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email'])) {
-
-        }
-        */
         $requestPayload = file_get_contents('php://input');
         $order = json_decode($requestPayload);
         //$this->view('carts/order_result', $data);
-        var_dump($order);
-
         
+        $customer = [
+            'id' => 0,
+            'name' => $order->customer->name,
+            'email' => $order->customer->email,
+            'phone' => $order->customer->phone,
+            'address' => $order->customer->address,
+        ];
+
+        $order_data = [
+            'customer_id' => 0,
+            'total_value' => $order->total_value,
+            'discount' => $order->discount*(-1),
+            'total_money' => $order->total_money,
+            'note' => $order->customer->note
+        ];
+
+        /*
+        $items = [];
+
+        for ($i = 0; $i < count($order->order_items); $i++) {
+            array_push($items, [
+                'order_id' => 0,
+                'product_id' => $order->order_items[$i]->productId,
+                'amount' => $order->order_items[$i]->amount,
+                'total_money' => $order->order_items[$i]->totalMoney
+            ]);
+        }
+        */
+        
+        
+        $newCustomer = $this->customerModel->createCustomer($customer);
+
+        if($newCustomer) {
+            $customer['id'] = $this->customerModel->getLastRecord()->customer_id;
+            
+            $order_data['customer_id'] = $customer['id'];
+            $newOrder = $this->orderModel->createOrder($order_data);
+            
+            if($newOrder) {
+                $order_id = $this->orderModel->getLastRecord()->order_id;
+                $items = [];
+                $newItems = [];
+                for ($i = 0; $i < count($order->order_items); $i++) {
+                    array_push($items, [
+                        'order_id' => $order_id,
+                        'product_id' => $order->order_items[$i]->productId,
+                        'amount' => $order->order_items[$i]->amount,
+                        'total_money' => $order->order_items[$i]->totalMoney
+                    ]);
+
+                    array_push($newItems, $this->orderItemModel->createOrderItem($items[$i]));
+                }
+            }
+        }
         
     }
 }
