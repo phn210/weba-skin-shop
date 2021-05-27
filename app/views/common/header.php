@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?=SITENAME?></title>
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/style.css">
-  <!--link rel="stylesheet" href="<?=URLROOT?>/public/css/home.css"-->
+  <link rel="stylesheet" href="<?=URLROOT?>/public/css/home.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_detail.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/product_list.css">
   <link rel="stylesheet" href="<?=URLROOT?>/public/css/cart.css">
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 
-<body style="background: url(<?=URLROOT?>/public/img/home/logo/home_background.png");>
+<body style="background: url(<?=URLROOT?>/public/img/home/logo/home_background.png; background-size: 100% 100%;");>
   <header>
     <img src="<?=URLROOT?>/public/img/logo.png" alt="logo" class="logo">
 

@@ -1,9 +1,20 @@
-#container {
-  min-height: 100%;
+#home-container {
+  width: 100%;
+  max-height: 1000px;
+  font-size: 1px;
+  margin: 0;
+  padding: 0;
   position: relative;
 }
 
-.slideshow-container {
+#home-container * {
+  box-sizing: border-box
+}
+
+
+/* thiết lập style cho slideshow container */
+
+#home-container .slideshow-container {
   padding-top: 175rem;
   max-width: 1025rem;
   position: relative;
@@ -13,11 +24,11 @@
 
 /* ẩn hình ảnh cho phần tử slideshow */
 
-.mySlides {
+#home-container .mySlides {
   display: none;
 }
 
-.mySlides:hover {
+#home-container .mySlides:hover {
   display: none;
   transform: scale(1.1);
 }
@@ -25,8 +36,9 @@
 
 /* thiết kế nút mũi tên*/
 
-.prev,
+#home-container .prev,
 .next {
+  display: none;
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -44,7 +56,7 @@
 
 /* thiết kế nút mũi tên next nằm phía bên phải */
 
-.next {
+#home-container .next {
   right: 0;
   border-radius: 3rem 0 0 3rem;
 }
@@ -52,7 +64,7 @@
 
 /* hiệu ứng thay đổi background khi hover vào nút mũi tên*/
 
-.prev:hover,
+#home-container .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
   transform: scale(1.2);
@@ -61,7 +73,7 @@
 
 /* Thiết lập style cho nội dung của mỗi phần tử slideshow */
 
-.text {
+#home-container .text {
   color: #f2f2f2;
   font-size: 15rem;
   padding: 8rem 12rem;
@@ -74,7 +86,7 @@
 
 /* Thiết lập style cho số hiển thị của phần tử */
 
-.numbertext {
+#home-container .numbertext {
   color: #f2f2f2;
   font-size: 12rem;
   padding: 8rem 12rem;
@@ -85,7 +97,7 @@
 
 /* thiết lập style  nút tròn điều khiển*/
 
-.dot {
+#home-container .dot {
   cursor: pointer;
   height: 15rem;
   width: 15rem;
@@ -96,7 +108,7 @@
   transition: background-color 0.6s ease;
 }
 
-.active,
+#home-container .active,
 .dot:hover {
   background-color: #717171;
   transform: scale(1.1);
@@ -105,7 +117,7 @@
 
 /* tạo hiệu ứng chuyển động fade */
 
-.fade {
+#home-container .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 2s;
   animation-name: fade;
@@ -130,13 +142,13 @@
   }
 }
 
-.laptop_button {
+#home-container .laptop_button {
   cursor: pointer;
   height: 80rem;
   width: 80rem;
   left: 125rem;
   top: 1075rem;
-  background-image: url(../image/logo/laptop.png);
+  background-image: url(../img/home/logo/laptop.png);
   background-color: rgb(228, 227, 227);
   background-size: contain;
   border-radius: 50%;
@@ -145,13 +157,13 @@
   transition: background-color 0.6s ease;
 }
 
-.laptop_button:hover {
+#home-container .laptop_button:hover {
   cursor: pointer;
   height: 80rem;
   width: 80rem;
   left: 125rem;
   top: 1075rem;
-  background-image: url(../image/logo/laptop.png);
+  background-image: url(../img/home/logo/laptop.png);
   background-color: rgb(228, 227, 227);
   background-size: contain;
   border-radius: 50%;
@@ -161,13 +173,13 @@
   transform: scale(1.2);
 }
 
-.phone_button {
+#home-container .phone_button {
   cursor: pointer;
   height: 80rem;
   width: 80rem;
   left: 175rem;
   top: 1175rem;
-  background-image: url(../image/logo/phone.png);
+  background-image: url(../img/home/logo/phone.png);
   background-color: rgb(228, 227, 227);
   background-size: contain;
   border-radius: 50%;
@@ -176,13 +188,13 @@
   transition: background-color 0.6s ease;
 }
 
-.phone_button:hover {
+#home-container .phone_button:hover {
   cursor: pointer;
   height: 80rem;
   width: 80rem;
   left: 175rem;
   top: 1175rem;
-  background-image: url(../image/logo/phone.png);
+  background-image: url(../img/home/logo/phone.png);
   background-color: rgb(228, 227, 227);
   background-size: contain;
   border-radius: 50%;
@@ -192,13 +204,13 @@
   transform: scale(1.2);
 }
 
-.design_button {
+#home-container .design_button {
   cursor: pointer;
   height: 80rem;
   width: 80rem;
   left: 125rem;
   top: 1275rem;
-  background-image: url(../image/logo/design.png);
+  background-image: url(../img/home/logo/design.png);
   background-color: rgb(228, 227, 227);
   background-size: contain;
   border-radius: 50%;
@@ -207,13 +219,13 @@
   transition: background-color 0.6s ease;
 }
 
-.design_button:hover {
+#home-container .design_button:hover {
   cursor: pointer;
   height: 80rem;
   width: 80rem;
   left: 125rem;
   top: 1275rem;
-  background-image: url(../image/logo/design.png);
+  background-image: url(../img/home/logo/design.png);
   background-color: rgb(228, 227, 227);
   background-size: contain;
   border-radius: 50%;
@@ -223,46 +235,46 @@
   transform: scale(1.2);
 }
 
-.contain_button_buynow {
+#home-container .contain_button_buynow {
   text-align: center;
   padding-top: 20rem;
 }
 
-.button1 {
+#home-container .button1 {
   background-color: white;
   color: black;
   border: 2rem solid #4CAF50;
 }
 
-.button1:hover {
+#home-container .button1:hover {
   background-color: #4CAF50;
   color: white;
 }
 
-.button_buynow {
+#home-container .button_buynow {
   width: 300rem;
   height: 100rem;
   background-color: transparent;
   border: none;
-  background-image: url(../image/logo/buy_now.png);
+  background-image: url(../img/home/logo/buy_now.png);
   background-size: contain;
   background-repeat: no-repeat;
   transition: ease-in;
 }
 
-.button_buynow:hover {
+#home-container .button_buynow:hover {
   width: 300rem;
   height: 100rem;
   background-color: transparent;
   border: none;
-  background-image: url(../image/logo/buy_now.png);
+  background-image: url(../img/home/logo/buy_now.png);
   background-size: contain;
   background-repeat: no-repeat;
   transition: ease-in;
   transform: scale(1.1);
 }
 
-.slideshow-container-top1 {
+#home-container .slideshow-container-top1 {
   border-radius: 6rem;
   padding-top: 300rem;
   width: 250rem;
@@ -273,16 +285,16 @@
   float: left;
 }
 
-.mySlides-top1 {
+#home-container .mySlides-top1 {
   display: none;
 }
 
-.mySlides-top1:hover {
+#home-container .mySlides-top1:hover {
   display: none;
   transform: scale(1.1);
 }
 
-.slideshow-container-top2 {
+#home-container .slideshow-container-top2 {
   border-radius: 6rem;
   padding-top: 250rem;
   padding-left: 50rem;
@@ -291,16 +303,16 @@
   float: left;
 }
 
-.mySlides-top2 {
+#home-container .mySlides-top2 {
   display: none;
 }
 
-.mySlides-top2:hover {
+#home-container .mySlides-top2:hover {
   display: none;
   transform: scale(1.1);
 }
 
-.slideshow-container-top3 {
+#home-container .slideshow-container-top3 {
   border-radius: 6rem;
   padding-top: 300rem;
   padding-left: 50rem;
@@ -309,24 +321,24 @@
   float: left;
 }
 
-.mySlides-top3 {
+#home-container .mySlides-top3 {
   display: none;
 }
 
-.mySlides-top3:hover {
+#home-container .mySlides-top3:hover {
   display: none;
   transform: scale(1.1);
 }
 
-.text_top {
+#home-container .text_top {
   clear: both;
   text-align: center;
-  top: 1525rem;
-  left: 600rem;
+  top: 1500rem;
+  left: 450rem;
   position: absolute;
 }
 
-h1 {
+#home-container h1 {
   display: block;
   font-size: 36rem;
   margin-top: 16rem;
@@ -336,7 +348,7 @@ h1 {
   font-weight: bold;
 }
 
-h2 {
+#home-container h2 {
   display: block;
   font-size: 24rem;
   margin-top: 14rem;
@@ -346,7 +358,7 @@ h2 {
   font-weight: bold;
 }
 
-h3 {
+#home-container h3 {
   display: block;
   font-size: 12rem;
   margin-top: 12rem;
@@ -354,4 +366,9 @@ h3 {
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+#home-container .text_top {
+  font-family: 'Pacifico', cursive;
 }
