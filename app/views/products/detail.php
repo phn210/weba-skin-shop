@@ -1,7 +1,6 @@
 <?php
     require_once '../app/views/common/header.php';
 ?>
-<?php var_dump($_SESSION['Cart']);?>
 <section class="main_section">
 
     <div class="product_directory">
@@ -81,7 +80,7 @@
       Sản phẩm tương tự
       <hr>
       <div class="similar_products">
-        <button id="similar_prev"><img src="../img/left-arrow.png"></button>
+        <button id="similar_prev"><img src="<?=URLROOT?>\public\img\left-arrow.png"></button>
         <div class="thumbnail-wrapper">
           <div class="thumbnails">
             <?php 
@@ -89,16 +88,18 @@
               if ($num  > 10) {
                 for ($i = 0; $i < 10; $i++) {
                 echo'
-                <div class="thumbnails">
+                <div class="thumbnail">
                   <a href="'.URLROOT.'/products/detail/'.$data['similar_products'][$i]->product_id.'">
                     <img class="similar-thumbnail" src="data:image/jpeg;base64,'.$data['similar_images'][$i].'" alt="similar_ product_image">
                   </a>
                 </div>';
                 }
               }
+              
               elseif($num > 0) {
                 for ($i = 0; $i < $num; $i++) {
                   echo'
+                <div class="thumbnail">
                   <a href="'.URLROOT.'/products/detail/'.$data['similar_products'][$i]->product_id.'">
                     <img src="data:image/jpeg;base64,'.$data['similar_images'][$i].'" alt="similar_ product_image">
                   </a>
@@ -110,8 +111,9 @@
               }
           ?>
         </div>
-        <button id="similar_next"><img src="../img/right-arrow.png"></button>
-      </div>
+      </div>        
+        <button id="similar_next"><img src="<?=URLROOT?>\public\img\right-arrow.png"></button>
+
     </div>
   </section>
 
